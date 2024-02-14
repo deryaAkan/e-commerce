@@ -63,8 +63,9 @@ export default function Slider({
             <img src={slide.img} alt={`Slide ${index}`} className="w-full" />
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
               <div className="text-white text-center">
-                <h2 className="text-4xl">{slide.title}</h2>
-                <p className="text-lg">{slide.description}</p>
+                <h2 className="font-bold text-xl">{slide.dateHero}</h2>
+                <h1 className="font-bold text-[58px]">{slide.title}</h1>
+                <p className="font-normal text-lg">{slide.description}</p>
               </div>
             </div>
           </div>

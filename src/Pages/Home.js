@@ -7,11 +7,19 @@ import EditorsPick1 from "../assets/homepage/media bg-covereditorspick1.png";
 import EditorsPick2 from "../assets/homepage/media bg-covereditorspick2.png";
 import EditorsPick3 from "../assets/homepage/media bg-covereditorspick4.png";
 import EditorsPick4 from "../assets/homepage/filtereditorspick3.png";
+import Button from "../Components/Button";
 
-const slides1 = [HomePageHero1, HomePageHero1, HomePageHero1, HomePageHero1];
+const slides1 = [
+  { img: HomePageHero1, dateHero: 'SUMMER 2020', title: 'NEW COLLECTION', description: 'We know how large objects will act, but things on a small scale.' },
+  {img: HomePageHero1, dateHero: 'SUMMER 2020', title: 'NEW COLLECTION', description: 'We know how large objects will act, but things on a small scale.' },
+  { img: HomePageHero1, dateHero: 'SUMMER 2020', title: 'NEW COLLECTION', description: 'We know how large objects will act, but things on a small scale.' }
+];
 
-const slides2 = [HomePageHero2, HomePageHero2, HomePageHero2, HomePageHero2];
-
+const slides2 = [
+  { img: HomePageHero2, title: 'Slide 1', description: 'Açıklama 1' },
+  { img: HomePageHero2, title: 'Slide 2', description: 'Açıklama 2' },
+  { img: HomePageHero2, title: 'Slide 3', description: 'Açıklama 3' }
+];
 export default function Header() {
   const products = Array.from({ length: 8 }, (_, index) => ({
     id: index + 1,
@@ -87,9 +95,7 @@ export default function Header() {
               <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
                 BUY NOW
               </button>
-              <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
-                READ MORE
-              </button>
+             <Button/>
             </div>
           </div>
         </section>
