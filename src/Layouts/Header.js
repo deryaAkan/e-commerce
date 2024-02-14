@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <>
       <header className="CommonThings w-full flex flex-col">
-        <div className="flex w-full bg-[#252B42] justify-around">
+        <div className="flex w-full bg-[#252B42] justify-around flex-wrap">
           <div className="flex gap-2">
             <div className="flex items-center text-sm font-bold gap-2">
               <FontAwesomeIcon icon={faPhone} style={{ color: "#ffffff" }} />

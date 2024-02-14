@@ -23,43 +23,67 @@ export default function Header() {
   }));
 
   return (
-    <section className="CommonThings">
-      <div>
-        <Slider slides={slides1} />
-        <main className="flex gap-5">
+    <main className="CommonThings">
+      <div className="flex flex-col">
+        <Slider className="bg-black" slides={slides1} />
+        <section className="CommonThings flex gap-5 flex-col bg-[#FAFAFA]">
           <div>
-            <img src={EditorsPick1}></img>
+            <h2 className="font-bold text-2xl text-black">EDITOR'S PICK</h2>
+            <p className="font-normal text-sm text-gray-400">
+              Problems trying to resolve the conflict between
+            </p>
           </div>
+          <div className="flex gap-8">
+            <div>
+              <img src={EditorsPick1}></img>
+            </div>
+            <div>
+              <img src={EditorsPick2}></img>
+            </div>
+            <div className="flex flex-col gap-4">
+              <img src={EditorsPick3}></img>
+              <img src={EditorsPick4}></img>
+            </div>
+          </div>
+        </section>
+        <section className="CommonThings flex flex-wrap gap-10">
           <div>
-            <img src={EditorsPick2}></img>
-          </div>
           <div className="flex flex-col gap-2">
-            <img src={EditorsPick3}></img>
-            <img src={EditorsPick4}></img>
+            <h2 className="font-bold text-xl text-gray-400 ">
+              Featured Products
+            </h2>
+            <h2 className="font-bold text-2xl text-black">
+              BESTSELLER PRODUCTS
+            </h2>
+            <p className="font-normal text-sm text-gray-400">
+              Problems trying to resolve the conflict between
+            </p>
           </div>
-        </main>
-        <main className="CommonThings flex flex-wrap gap-10">
-      {products.map(product => (
-        <ProductCard
-          key={product.id}
-          name={product.name}
-          category={product.category}
-          department={product.department}
-          price={product.price}
-          color={product.color}
-        />
-      ))}
-            </main> 
-        <Slider slides={slides2} />
-        <main className="flex">
+          <div className="CommonThings flex flex-wrap gap-10">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                name={product.name}
+                category={product.category}
+                department={product.department}
+                price={product.price}
+                color={product.color}
+              />
+            ))}
+          </div>
+          </div>
+        </section>
+        <div className="flex flex-col">
+        <Slider className="bg-[#23856D]" slides={slides2} />
+        <section className="flex">
           <img src={HomePageHero3} />
-          <div className="text-black">
-            <h5>SUMMER 2020</h5>
-            <h2>Part of the Neural Universe</h2>
-            <h4>
+          <div className="text-black flex flex-col gap-3 justify-center items-start">
+            <h5 className="text-base font-bold text-gray-400">SUMMER 2020</h5>
+            <h2 className="text-[40px] font-bold">Part of the Neural Universe</h2>
+            <h4 className=" text-[#737373] font-normal">
               We know how large objects will act, but things on a small scale.
             </h4>
-            <div>
+            <div className="flex gap-2">
               <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
                 BUY NOW
               </button>
@@ -68,8 +92,9 @@ export default function Header() {
               </button>
             </div>
           </div>
-        </main>
+        </section>
+        </div>
       </div>
-    </section>
+    </main>
   );
 }
