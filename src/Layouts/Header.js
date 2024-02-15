@@ -9,6 +9,7 @@ import {
   faTwitter,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import Dropdown from "../Components/Navbar";
 
 
 export default function Header() {
@@ -47,12 +48,7 @@ export default function Header() {
           <div className="text-[#252B42] flex items-center flex-grow">
             <h3 className="font-2xl font-bold">Bandage</h3>
             <nav className="flex text-sm">
-            <Link to="/">Home</Link>
-              <Link to="/products">Shop</Link>
-              <Link to="/about">About</Link>
-              <Link to="/contact">Contact</Link>
-              <Link to="/blog">Blog</Link>
-              <Link to="/pages">Pages</Link>
+              <Dropdown />
             </nav>
           </div>
           <div className="text-[#252B42] flex items-center gap-2 flex-grow justify-end">

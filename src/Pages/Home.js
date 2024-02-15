@@ -7,7 +7,6 @@ import EditorsPick1 from "../assets/homepage/media bg-covereditorspick1.png";
 import EditorsPick2 from "../assets/homepage/media bg-covereditorspick2.png";
 import EditorsPick3 from "../assets/homepage/media bg-covereditorspick4.png";
 import EditorsPick4 from "../assets/homepage/filtereditorspick3.png";
-import Button from "../Components/Button";
 
 const slides1 = [
   { img: HomePageHero1, dateHero: 'SUMMER 2020', title: 'NEW COLLECTION', description: 'We know how large objects will act, but things on a small scale.' },
@@ -95,7 +94,9 @@ export default function Header() {
               <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
                 BUY NOW
               </button>
-             <Button/>
+              <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                READ ME
+      </button>
             </div>
           </div>
         </section>
