@@ -7,6 +7,7 @@ import EditorsPick1 from "../assets/homepage/media bg-covereditorspick1.png";
 import EditorsPick2 from "../assets/homepage/media bg-covereditorspick2.png";
 import EditorsPick3 from "../assets/homepage/media bg-covereditorspick4.png";
 import EditorsPick4 from "../assets/homepage/filtereditorspick3.png";
+import bestSeller1 from '../assets/homepage/fixed-heightbestseller1.png';
 
 const slides1 = [
   { img: HomePageHero1, dateHero: 'SUMMER 2020', title: 'NEW COLLECTION', description: 'We know how large objects will act, but things on a small scale.' },

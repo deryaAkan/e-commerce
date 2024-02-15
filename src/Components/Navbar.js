@@ -14,7 +14,7 @@ export default function Dropdown() {
 
   return (
     <>
-      <div className="relative flex  gap-2" onBlur={closeMenu}>
+      <div className="relative flex gap-3" onBlur={closeMenu}>
         <Link to="/">Home</Link>
         <div className="relative flex text-left">
           <button

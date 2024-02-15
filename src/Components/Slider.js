@@ -53,7 +53,7 @@ export default function Slider({
   }, []);
 
   return (
-    <div className="overflow-hidden relative">
+    <div className="overflow-hidden relative rounded-lg">
       <div
         className="flex transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${curr * 100}%)` }}
@@ -61,12 +61,16 @@ export default function Slider({
         {slides.map((slide, index) => (
           <div key={index} className="w-full flex-shrink-0 relative">
             <img src={slide.img} alt={`Slide ${index}`} className="w-full" />
-            <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-              <div className="text-white text-center">
-                <h2 className="font-bold text-xl">{slide.dateHero}</h2>
+            <div className="absolute top-0 left-0 w-2/3 h-full flex items-center justify-center">
+              <div className="flex flex-col text-white gap-8">
+                <h2 className="font-bold text-xl flex justify-start">{slide.dateHero}</h2>
                 <h1 className="font-bold text-[58px]">{slide.title}</h1>
-                <p className="font-normal text-lg">{slide.description}</p>
+                <p className="font-normal text-lg text-left w-2/3 flex">{slide.description}</p>
+                <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-5 max-w-fit text-2xl rounded">
+                  SHOP NOW
+      </button>
               </div>
+              
             </div>
           </div>
         ))}
@@ -87,13 +91,13 @@ export default function Slider({
       </div>
 
       <div className="absolute bottom-4 right-0 left-0">
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex items-center justify-center gap-1">
           {slides.map((_, i) => (
             <div
               key={i}
               className={`
-                transition-all w-3 h-3 bg-white rounded-full
-                ${curr === i ? "p-2" : "bg-opacity-50"}
+                transition-all w-14 h-1 bg-white 
+                ${curr === i ? "pt-1 pb-1" : "bg-opacity-50"}
               `}
             />
           ))}
