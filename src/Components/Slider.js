@@ -53,7 +53,7 @@ export default function Slider({
   }, []);
 
   return (
-    <div className="overflow-hidden relative rounded-lg">
+    <div className="overflow-hidden relative xl:rounded-lg l:rounded-lg">
       <div
         className="flex transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${curr * 100}%)` }}
@@ -91,12 +91,12 @@ export default function Slider({
       </div>
 
       <div className="absolute bottom-4 right-0 left-0">
-        <div className="flex items-center justify-center gap-1">
+        <div className="flex items-center justify-center gap-[2px]">
           {slides.map((_, i) => (
             <div
               key={i}
               className={`
-                transition-all w-14 h-1 bg-white 
+                transition-all w-14 h-2 bg-white 
                 ${curr === i ? "pt-1 pb-1" : "bg-opacity-50"}
               `}
             />
