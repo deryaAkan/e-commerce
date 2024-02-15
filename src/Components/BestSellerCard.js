@@ -3,7 +3,7 @@ import bestSeller1 from '../assets/homepage/fixed-heightbestseller1.png';
 
 function BestSellerCard() {
   return (
-    <div className="max-w-xs bg-white shadow-md overflow-hidden m-4">
+    <div className="max-w-xs bg-white overflow-hidden m-4">
       <img className="w-full h-auto" src={bestSeller1} alt="Product" />
 
       <div className="p-4">

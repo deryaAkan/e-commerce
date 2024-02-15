@@ -1,5 +1,4 @@
 import Slider from "../Components/Slider";
-import ProductCard from "../Components/ProductCard";
 import HomePageHero1 from "../assets/homepage/shop-hero-1-product-slide-1.png";
 import HomePageHero2 from "../assets/homepage/shop-hero-2-product-slide-2.jpg";
 import HomePageHero3 from "../assets/homepage/hero-cover-1.png";
@@ -10,13 +9,6 @@ import EditorsPick4 from "../assets/homepage/filtereditorspick3.png";
 import BestSellerCard from "../Components/BestSellerCard";
 
 const slides1 = [
-  {
-    img: HomePageHero1,
-    dateHero: "SUMMER 2020",
-    title: "NEW COLLECTION",
-    description:
-      "We know how large objects will act, but things on a small scale.",
-  },
   {
     img: HomePageHero1,
     dateHero: "SUMMER 2020",
@@ -52,23 +44,47 @@ export default function Header() {
     <main className="CommonThings">
       <div className="flex flex-col">
         <Slider className="bg-black xl:hidden" slides={slides1} />
-        <section className="CommonThings flex gap-5 flex-col bg-[#FAFAFA]">
-          <div className="flex flex-col gap-10 w-4/5 flex-wrap">
+        <section className="CommonThings flex flex-wrap gap-5 flex-col bg-[#FAFAFA] py-20">
+          <div className="flex flex-col gap-2 w-4/5 flex-wrap">
             <h2 className="font-bold text-2xl text-black">EDITOR'S PICK</h2>
             <p className="font-normal text-sm text-gray-400">
               Problems trying to resolve the conflict between
             </p>
           </div>
-          <div className="flex gap-8">
-            <div>
-              <img src={EditorsPick1}></img>
+          <div className="flex gap-8 flex-wrap text-base">
+            <div className="flex-shrink-0 relative">
+              <img src={EditorsPick1} />
+              <div className="absolute bottom-0 left-0 w-2/3 pl-3 pb-3 flex items-center ">
+                <button className="bg-white hover:bg-gray-100 w-32 text-black font-bold py-2 px-4 rounded">
+                  MEN
+                </button>
+              </div>
             </div>
-            <div>
-              <img src={EditorsPick2}></img>
+            <div className="flex-shrink-0 relative">
+              <img src={EditorsPick2} />
+              <div className="absolute bottom-0 left-0 w-2/3 pl-3 pb-3 flex items-center ">
+                <button className="bg-white hover:bg-gray-100 w-32 text-black font-bold py-2 px-4 rounded">
+                  WOMEN
+                </button>
+              </div>
             </div>
             <div className="flex flex-col gap-4">
-              <img src={EditorsPick3}></img>
-              <img src={EditorsPick4}></img>
+            <div className="flex-shrink-0 relative">
+              <img src={EditorsPick4} />
+              <div className="absolute bottom-0 left-0 w-2/3 pl-3 pb-3 flex items-center ">
+                <button className="bg-white hover:bg-gray-100 w-36 text-black font-bold py-2 px-4 rounded">
+                  ACCESSORIES
+                </button>
+              </div>
+            </div>
+            <div className="flex-shrink-0 relative">
+              <img src={EditorsPick3} />
+              <div className="absolute bottom-0 left-0 w-2/3 pl-3 pb-3 flex items-center ">
+                <button className="bg-white hover:bg-gray-100 w-32 text-black font-bold py-2 px-4 rounded">
+                  KIDS
+                </button>
+              </div>
+            </div>
             </div>
           </div>
         </section>
