@@ -8,6 +8,7 @@ import EditorsPick3 from "../assets/homepage/media bg-covereditorspick4.png";
 import EditorsPick4 from "../assets/homepage/filtereditorspick3.png";
 import BestSellerCard from "../Components/BestSellerCard";
 import shophero2 from '../assets/homepage/shop-hero-2-png-picture-1.png';
+import FeaturedCard from "../Components/FeaturedPostsCard";
 
 const slides1 = [
   {
@@ -159,6 +160,15 @@ export default function Header() {
                 </div>
               </div>
             </div>
+          </section>
+          <section className="CommonThings flex flex-col w-full justify-center py-20">
+          <div className="flex flex-col gap-2 w-4/5 items-center flex-wrap">
+            <h2 className="font-bold text-2xl text-black">Featured Posts</h2>
+            <p className="font-normal text-sm text-gray-400">
+              Problems trying to resolve the conflict between
+            </p>
+          </div>
+          <FeaturedCard />
           </section>
         </div>
       </div>
