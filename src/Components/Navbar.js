@@ -14,9 +14,10 @@ export default function Dropdown() {
 
   return (
     <>
-      <div className="relative flex gap-3" onBlur={closeMenu}>
+      <div className="relative flex  gap-3" onBlur={closeMenu}>
         <Link to="/">Home</Link>
         <div className="relative flex text-left">
+          <Link to="/products">
           <button
             onClick={toggleMenu}
             className="inline-flex w-full justify-center gap-x-1.5 text-sm text-gray-900"
@@ -38,6 +39,7 @@ export default function Dropdown() {
               />
             </svg>
           </button>
+          </Link>
         </div>
         {menuOpen && (
           <div

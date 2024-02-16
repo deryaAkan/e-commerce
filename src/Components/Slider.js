@@ -59,18 +59,18 @@ export default function Slider({
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides.map((slide, index) => (
-          <div key={index} className="w-full flex-shrink-0 relative">
+          <div key={index} className="w-full flex flex-shrink-0 relative">
             <img src={slide.img} alt={`Slide ${index}`} className="w-full" />
             <div className="absolute top-0 left-0 w-2/3 h-full flex items-center justify-center">
               <div className="flex flex-col text-white gap-8">
                 <h2 className="font-bold text-xl flex justify-start">{slide.dateHero}</h2>
-                <h1 className="font-bold text-[58px]">{slide.title}</h1>
+                <h1 className="font-bold text-left text-[58px]">{slide.title}</h1>
                 <p className="font-normal text-lg text-left w-2/3 flex">{slide.description}</p>
-                <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-5 max-w-fit text-2xl rounded">
-                  SHOP NOW
+                <button className="bg-[#2DC071] hover:bg-white cursor-pointer text-white font-bold py-2 px-5 max-w-fit text-2xl rounded">
+                  {slide.button}
       </button>
               </div>
-              
+              <img src={slide.onImg} />
             </div>
           </div>
         ))}
