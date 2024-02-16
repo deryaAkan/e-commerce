@@ -150,10 +150,10 @@ export default function Header() {
                   scale.
                 </h4>
                 <div className="flex gap-2">
-                  <button className="bg-[#2DC071] hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                  <button className="bg-[#2DC071] text-sm w-[171px] hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
                     BUY NOW
                   </button>
-                  <button className="bg-[#2DC071] hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                  <button className="bg-white border-[#2DC071] border-2 hover:bg-green-400 w-[171px] text-[#2DC071] text-sm font-bold py-2 px-4 rounded">
                     READ ME
                   </button>
                 </div>
