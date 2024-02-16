@@ -69,17 +69,23 @@ export default function Footer() {
             </div>
           ))}
           <div className="flex flex-col text-left flex-grow">
-          <h2 className="text-base font-bold text-black">Get in touch</h2>
-          <form className="flex">
-  <input className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200" type="text" placeholder="Your E-mail" />
-  <button className="bg-[#23A6F0]  text-white font-normal text-sm py-2 px-4 rounded hover:bg-blue-300">
-Subscribe
-      </button>
-</form>
+            <h2 className="text-base font-bold text-black">Get in touch</h2>
+            <form className="flex">
+              <input
+                className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200"
+                type="text"
+                placeholder="Your E-mail"
+              />
+              <button className="bg-[#23A6F0]  text-white font-normal text-sm py-2 px-4 rounded hover:bg-blue-300">
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
         <div className="flex justify-start w-4/5 py-5">
-            <p className="text-base font-bold text-[#737373]">Made With Love By Finland All Right Reserved</p>
+          <p className="text-base font-bold text-[#737373]">
+            Made With Love By Finland All Right Reserved
+          </p>
         </div>
       </div>
     </>

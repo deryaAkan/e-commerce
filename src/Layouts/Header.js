@@ -18,8 +18,8 @@ export default function Header() {
   return (
     <>
       <header className="CommonThings w-full flex flex-col">
-        <div className="flex w-full bg-[#252B42] justify-center pr-6 pl-6">
-        <div className="flex w-full justify-between flex-wrap sm:hidden pt-3 pb-3">
+        <div className="flex w-full bg-[#252B42] justify-center">
+        <div className="flex w-4/5 justify-between flex-wrap sm:hidden pt-3 pb-3">
           <div className="flex gap-2">
             <div className="flex items-center text-sm font-bold gap-2">
               <FontAwesomeIcon icon={faPhone} style={{ color: "#ffffff" }} />
@@ -48,7 +48,7 @@ export default function Header() {
           </div>
         </div>
         </div>
-        <div className="flex w-full justify-around flex-wrap pr-6 pl-6">
+        <div className="flex w-4/5 justify-around flex-wrap">
           <div className="text-[#252B42] flex items-center flex-grow gap-24">
             <h3 className="font-2xl font-bold">Bandage</h3>
             <nav className="flex text-sm font-bold text-gray-400">

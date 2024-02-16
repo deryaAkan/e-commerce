@@ -162,7 +162,7 @@ export default function Header() {
             </div>
           </section>
           <section className="CommonThings flex flex-col w-full justify-center py-20">
-          <div className="flex flex-col gap-2 w-4/5 items-center flex-wrap">
+          <div className="flex flex-col gap-2 w-4/5 items-center flex-wrap py-5">
             <h2 className="font-bold text-2xl text-black">Featured Posts</h2>
             <p className="font-normal text-sm text-gray-400">
               Problems trying to resolve the conflict between
