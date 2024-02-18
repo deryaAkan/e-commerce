@@ -132,7 +132,7 @@ export default function Dropdown() {
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/blog">Blog</Link>
-        <Link to="/pages">Pages</Link>
+        <Link to="/team">Pages</Link>
       </div>
     </>
   );

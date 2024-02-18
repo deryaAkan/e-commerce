@@ -7,7 +7,7 @@ import EditorsPick2 from "../assets/homepage/media bg-covereditorspick2.png";
 import EditorsPick3 from "../assets/homepage/media bg-covereditorspick4.png";
 import EditorsPick4 from "../assets/homepage/filtereditorspick3.png";
 import BestSellerCard from "../Components/BestSellerCard";
-import shophero2 from '../assets/homepage/shop-hero-2-png-picture-1.png';
+import shophero2 from "../assets/homepage/shop-hero-2-png-picture-1.png";
 import FeaturedCard from "../Components/FeaturedPostsCard";
 
 const slides1 = [
@@ -17,7 +17,7 @@ const slides1 = [
     title: "NEW COLLECTION",
     description:
       "We know how large objects will act, but things on a small scale.",
-      button: "SHOP NOW"
+    button: "SHOP NOW",
   },
   {
     img: HomePageHero1,
@@ -25,7 +25,7 @@ const slides1 = [
     title: "NEW COLLECTION",
     description:
       "We know how large objects will act, but things on a small scale.",
-      button: "SHOP NOW"
+    button: "SHOP NOW",
   },
 ];
 
@@ -36,8 +36,8 @@ const slides2 = [
     title: "Vita Classic Product",
     description:
       "We know how large objects will act, We know how are objects will act, We know.",
-      onImg: shophero2,
-      button: "ADD TO THE CARD"
+    onImg: shophero2,
+    button: "ADD TO THE CARD",
   },
   {
     img: HomePageHero2,
@@ -46,7 +46,7 @@ const slides2 = [
     description:
       "We know how large objects will act, We know how are objects will act, We know.",
     onImg: shophero2,
-    button: "ADD TO THE CARD"
+    button: "ADD TO THE CARD",
   },
 ];
 export default function Header() {
@@ -162,13 +162,16 @@ export default function Header() {
             </div>
           </section>
           <section className="CommonThings flex flex-col w-full justify-center py-20">
-          <div className="flex flex-col gap-2 w-4/5 items-center flex-wrap py-5">
-            <h2 className="font-bold text-2xl text-black">Featured Posts</h2>
-            <p className="font-normal text-sm text-gray-400">
-              Problems trying to resolve the conflict between
-            </p>
-          </div>
-          <FeaturedCard />
+            <div className="flex flex-col gap-2 w-4/5 items-center flex-wrap py-5">
+              <h2 className="font-bold text-[40px] text-black">
+                Featured Posts
+              </h2>
+              <p className="font-normal text-sm text-gray-400">
+                Problems trying to resolve the conflict between the two major
+                realms of Classical physics: Newtonian mechanics
+              </p>
+            </div>
+            <FeaturedCard />
           </section>
         </div>
       </div>

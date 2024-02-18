@@ -15,13 +15,13 @@ const categories = [
 
 function CategoryCard() {
   return (
-    <>
+    <div className="flex justify-between w-4/5">
       {categories.map((category, index) => (
-        <div key={index} className="max-w-xs bg-white shadow-md overflow-hidden m-4">
+        <div key={index} className="max-w-xs bg-white shadow-md overflow-hidden">
           <img className="w-full h-auto" src={category.img} alt={`Category ${index + 1}`} />
         </div>
       ))}
-    </>
+    </div>
   );
 }
 
