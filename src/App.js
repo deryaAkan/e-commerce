@@ -5,6 +5,7 @@ import Home from './Pages/Home'
 import Shop from './Pages/Shop';
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
 import TeamPage from './Pages/TeamPage';
+import AboutPage from './Pages/AboutPage';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" exact component={Home} /> 
           <Route path="/products" component={Shop} />
           <Route path="/team" component={TeamPage} />
+          <Route path="/about" component={AboutPage} />
         </Switch>
         <Footer />
       </div>
