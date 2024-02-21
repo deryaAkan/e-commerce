@@ -3,7 +3,7 @@ import ProductImg1 from "../assets/homepage/product-cover-5productPage1.png";
 
 function ProductCard() {
   return (
-    <div className="max-w-xs bg-white shadow-md overflow-hidden m-4">
+    <div className="max-w-xs bg-white overflow-hidden m-4">
       <img className="w-full h-auto" src={ProductImg1} alt="Product" />
 
       <div className="p-4">

@@ -4,7 +4,6 @@ import {
   faFacebook,
   faInstagram,
   faTwitter,
-  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
 const footerInfo = [
@@ -46,7 +45,7 @@ export default function Footer() {
           <div className="text-[#252B42] flex items-center gap-24">
             <h3 className="text-2xl font-bold">Bandage</h3>
           </div>
-          <hr/>
+          <hr />
           <div className="flex gap-2">
             <FontAwesomeIcon icon={faInstagram} style={{ color: "#23A6F0" }} />
             <FontAwesomeIcon icon={faFacebook} style={{ color: "#23A6F0" }} />
@@ -58,10 +57,13 @@ export default function Footer() {
             {footerInfo.map((info, index) => (
               <div
                 key={index}
-                className="w-full flex flex-col relative text-black text-left gap-y-2">
+                className="w-full flex flex-col relative text-black text-left gap-y-2"
+              >
                 <h2 className="text-base font-bold">{info.title}</h2>
                 <ul className="text-sm font-bold text-[#737373]">
-                  <li><a href="#">{info.one}</a></li>
+                  <li>
+                    <a href="#">{info.one}</a>
+                  </li>
                   <li>{info.two}</li>
                   <li>{info.three}</li>
                   <li>{info.four}</li>
