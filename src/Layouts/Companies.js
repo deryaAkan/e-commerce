@@ -5,12 +5,11 @@ import shopSvg4 from "../assets/shoppage/fa-brands-4shopppsvg.svg";
 import shopSvg5 from "../assets/shoppage/fa-brands-5shopppsvg.svg";
 import shopSvg6 from "../assets/shoppage/fa-brands-6shopppsvg.svg";
 
-
 export default function Companies() {
   return (
     <>
       <div className="flex w-full justify-center bg-[#FAFAFA] py-5">
-        <div className="flex flex-wrap w-4/5 justify-between">
+        <div className="flex flex-wrap px-24 w-4/5 justify-between">
           <img src={shopSvg1}></img>
           <img src={shopSvg2}></img>
           <img src={shopSvg3}></img>

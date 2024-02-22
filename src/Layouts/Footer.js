@@ -40,7 +40,7 @@ const footerInfo = [
 export default function Footer() {
   return (
     <>
-      <div className="flex w-full flex-col items-center justify-center bg-white">
+      <div className="flex w-full flex-col items-center px-24 justify-center bg-white">
         <div className="flex w-4/5 justify-between flex-wrap items-center py-5">
           <div className="text-[#252B42] flex items-center gap-24">
             <h3 className="text-2xl font-bold">Bandage</h3>

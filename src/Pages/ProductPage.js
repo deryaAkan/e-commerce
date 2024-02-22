@@ -5,8 +5,18 @@ import productPageThumb2 from "../assets/productpage/single-product-1-thumb-2.pn
 import starsProduct from "../assets/productpage/Vectorstar.svg";
 import yeto from "../assets/productpage/card-item111.png";
 import yetoo from "../assets/productpage/product-cover-5productpagebest.png";
+import BestSellerCard from "../Components/BestSellerCard";
 
 export default function ProductPage() {
+  const products = Array.from({ length: 8 }, (_, index) => ({
+    id: index + 1,
+    name: `Ürün ${index + 1}`,
+    category: "Graphic Design",
+    department: "English Department",
+    price: Math.floor(Math.random() * 100) + 10,
+    color: ["red", "blue", "green", "yellow"][Math.floor(Math.random() * 4)],
+  }));
+
   const slides3 = [
     {
       img: productPageSlider1,
@@ -110,6 +120,17 @@ export default function ProductPage() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex flex-wrap justify-center w-3/4 gap-2">
+          {products.map((product) => (
+            <BestSellerCard
+              key={product.id}
+              name={product.name}
+              category={product.category}
+              department={product.department}
+              price={product.price}
+            />
+          ))}
         </div>
       </div>
     </>
