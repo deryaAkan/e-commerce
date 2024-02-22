@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import TeamPage from "./Pages/TeamPage";
 import AboutPage from "./Pages/AboutPage";
 import ContactPage from "./Pages/ContactPage";
+import ProductPage from "./Pages/ProductPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/team" component={TeamPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/contact" component={ContactPage} />
+        <Route path="/productpage" component={ProductPage} />
       </Switch>
       <Footer />
     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import ProductCard from "../Components/ProductCard";
 import Categories from "../Components/Categories";
 import Companies from "../Layouts/Companies";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Shop = () => {
   const products = Array.from({ length: 36 }, (_, index) => ({
@@ -29,16 +30,18 @@ const Shop = () => {
           </h3>
         </div>
       </div>
-      <div className="flex w-4/5 flex-wrap gap-10">
+      <div className="flex w-3/4 justify-between flex-wrap">
         {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            name={product.name}
-            category={product.category}
-            department={product.department}
-            price={product.price}
-            color={product.color}
-          />
+          <Link to="/productpage">
+            <ProductCard
+              key={product.id}
+              name={product.name}
+              category={product.category}
+              department={product.department}
+              price={product.price}
+              color={product.color}
+            />
+          </Link>
         ))}
       </div>
       <Companies />
