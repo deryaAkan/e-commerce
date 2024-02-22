@@ -4,18 +4,77 @@ import productPageThumb1 from "../assets/productpage/single-product-1-thumb-1.pn
 import productPageThumb2 from "../assets/productpage/single-product-1-thumb-2.png";
 import starsProduct from "../assets/productpage/Vectorstar.svg";
 import yeto from "../assets/productpage/card-item111.png";
-import yetoo from "../assets/productpage/product-cover-5productpagebest.png";
-import BestSellerCard from "../Components/BestSellerCard";
+import yeto1 from "../assets/productpage/product-cover-5productpagebest.png";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import ProductCard from "../Components/ProductCard";
 
 export default function ProductPage() {
-  const products = Array.from({ length: 8 }, (_, index) => ({
-    id: index + 1,
-    name: `Ürün ${index + 1}`,
-    category: "Graphic Design",
-    department: "English Department",
-    price: Math.floor(Math.random() * 100) + 10,
-    color: ["red", "blue", "green", "yellow"][Math.floor(Math.random() * 4)],
-  }));
+  const products = [
+    {
+      id: 1,
+      name: "Graphic Design",
+      category: "English Department",
+      image: yeto1,
+      oldPrice: "$16.48",
+      newPrice: "$6.48",
+    },
+    {
+      id: 1,
+      name: "Graphic Design",
+      category: "English Department",
+      image: yeto1,
+      oldPrice: "$16.48",
+      newPrice: "$6.48",
+    },
+    {
+      id: 1,
+      name: "Graphic Design",
+      category: "English Department",
+      image: yeto1,
+      oldPrice: "$16.48",
+      newPrice: "$6.48",
+    },
+    {
+      id: 1,
+      name: "Graphic Design",
+      category: "English Department",
+      image: yeto1,
+      oldPrice: "$16.48",
+      newPrice: "$6.48",
+    },
+    {
+      id: 1,
+      name: "Graphic Design",
+      category: "English Department",
+      image: yeto1,
+      oldPrice: "$16.48",
+      newPrice: "$6.48",
+    },
+    {
+      id: 1,
+      name: "Graphic Design",
+      category: "English Department",
+      image: yeto1,
+      oldPrice: "$16.48",
+      newPrice: "$6.48",
+    },
+    {
+      id: 1,
+      name: "Graphic Design",
+      category: "English Department",
+      image: yeto1,
+      oldPrice: "$16.48",
+      newPrice: "$6.48",
+    },
+    {
+      id: 1,
+      name: "Graphic Design",
+      category: "English Department",
+      image: yeto1,
+      oldPrice: "$16.48",
+      newPrice: "$6.48",
+    },
+  ];
 
   const slides3 = [
     {
@@ -121,15 +180,11 @@ export default function ProductPage() {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap justify-center w-3/4 gap-2">
+        <div className="flex w-3/4 justify-center flex-wrap py-10 gap-10">
           {products.map((product) => (
-            <BestSellerCard
-              key={product.id}
-              name={product.name}
-              category={product.category}
-              department={product.department}
-              price={product.price}
-            />
+            <Link to="/productpage" key={product.id}>
+              <ProductCard product={product} />
+            </Link>
           ))}
         </div>
       </div>

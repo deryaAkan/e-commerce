@@ -13,12 +13,6 @@ const ProductCard = ({ product }) => {
           <span>{productInfo.oldPrice} TL</span>
           <span className="text-[#23856D]">{productInfo.newPrice} TL</span>
         </div>
-        <div className="flex items-center justify-center space-x-2">
-          <div className="w-4 h-4 rounded-full bg-[#23A6F0]"></div>
-          <div className="w-4 h-4 rounded-full bg-[#23856D]"></div>
-          <div className="w-4 h-4 rounded-full bg-[#E77C40]"></div>
-          <div className="w-4 h-4 rounded-full bg-[#23856D]"></div>
-        </div>
       </div>
     </div>
   );

@@ -285,6 +285,12 @@ const Shop = () => {
         {products.map((product) => (
           <Link to="/productpage" key={product.id}>
             <ProductCard product={product} />
+            <div className="flex items-center justify-center space-x-2">
+              <div className="w-4 h-4 rounded-full bg-[#23A6F0]"></div>
+              <div className="w-4 h-4 rounded-full bg-[#23856D]"></div>
+              <div className="w-4 h-4 rounded-full bg-[#E77C40]"></div>
+              <div className="w-4 h-4 rounded-full bg-[#23856D]"></div>
+            </div>
           </Link>
         ))}
       </div>
