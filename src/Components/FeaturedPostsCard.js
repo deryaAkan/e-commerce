@@ -6,52 +6,57 @@ import dateIcon from "../assets/homepage/cooliconsaat.svg";
 import comment from "../assets/homepage/Vectorcomment.svg";
 
 const featuredCardInfo = [
-    {
-        img: featured1,
-        links: ["Google", "Trending", "New"],
-        title: "Loudest à la Madison #1 (L'integral)",
-        dateIcon: dateIcon,
-        date: "22 April 2021",
-        commentInfoIcon: comment,
-        commentInfo: "Comments",
-        learnMore: "Learn More",
-    },
+  {
+    img: featured1,
+    links: ["Google", "Trending", "New"],
+    title: "Loudest à la Madison #1 (L'integral)",
+    dateIcon: dateIcon,
+    date: "22 April 2021",
+    commentInfoIcon: comment,
+    commentInfo: "Comments",
+    learnMore: "Learn More",
+  },
 
-    {
-        img: featured2,
-        links: ["Google", "Trending", "New"],
-        title: "Loudest à la Madison #1 (L'integral)",
-        dateIcon: dateIcon,
-        date: "22 April 2021",
-        commentInfoIcon: comment,
-        commentInfo: "Comments",
-        learnMore: "Learn More",
-    },
+  {
+    img: featured2,
+    links: ["Google", "Trending", "New"],
+    title: "Loudest à la Madison #1 (L'integral)",
+    dateIcon: dateIcon,
+    date: "22 April 2021",
+    commentInfoIcon: comment,
+    commentInfo: "Comments",
+    learnMore: "Learn More",
+  },
 
-    {
-        img: featured3,
-        links: ["Google", "Trending", "New"],
-        title: "Loudest à la Madison #1 (L'integral)",
-        dateIcon: dateIcon,
-        date: "22 April 2021",
-        commentInfoIcon: comment,
-        commentInfo: "Comments",
-        learnMore: "Learn More",
-    },
-    
-]
+  {
+    img: featured3,
+    links: ["Google", "Trending", "New"],
+    title: "Loudest à la Madison #1 (L'integral)",
+    dateIcon: dateIcon,
+    date: "22 April 2021",
+    commentInfoIcon: comment,
+    commentInfo: "Comments",
+    learnMore: "Learn More",
+  },
+];
 
 function FeaturedCard() {
-    return (
-      <>
-   
-      <div className="flex w-4/5 gap-3 justify-center">
+  return (
+    <>
+      <div className="flex w-4/5 gap-3 justify-center sm:w-full flex-wrap">
         {featuredCardInfo.map((item, index) => (
-          <div key={index} className="max-w-xs bg-[#FAFAFA] shadow-md overflow-hidden">
+          <div
+            key={index}
+            className="max-w-xs bg-[#FAFAFA] shadow-md overflow-hidden"
+          >
             <img className="w-full h-auto" src={item.img} alt="Product" />
-            <p className="text-sm flex gap-2 text-black font-base">{item.links}</p>
+            <p className="text-sm flex gap-2 text-black font-base">
+              {item.links}
+            </p>
             <div className="p-4">
-              <p className="text-xl text-left text-gray-700 font-semibold mb-2">{item.title}</p>
+              <p className="text-xl text-left text-gray-700 font-semibold mb-2">
+                {item.title}
+              </p>
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <img src={item.dateIcon} alt="Date" />
@@ -68,9 +73,9 @@ function FeaturedCard() {
             </div>
           </div>
         ))}
-        </div>
-      </>
-    );
-  }
-  
-  export default FeaturedCard;
+      </div>
+    </>
+  );
+}
+
+export default FeaturedCard;

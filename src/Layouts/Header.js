@@ -20,7 +20,7 @@ export default function Header() {
       ) : (
         <header className="CommonThings w-full flex flex-col">
           <div className="flex w-full px-16 bg-[#252B42] justify-center">
-            <div className="flex w-3/4 justify-between flex-wrap sm:hidden pt-3 pb-3">
+            <div className="flex w-3/4 justify-between flex-wrap pt-3 pb-3 sm:hidden">
               <div className="flex gap-2">
                 <div className="flex items-center text-sm font-bold gap-2">
                   <FontAwesomeIcon

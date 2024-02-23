@@ -60,8 +60,8 @@ export default function Header() {
   }));
 
   return (
-    <main className="CommonThings">
-      <div className="flex flex-col">
+    <main className="sm:w-full">
+      <div className="flex flex-col sm:w-full ">
         <Slider className="bg-black xl:hidden" slides={slides1} />
         <section className="CommonThings flex flex-wrap gap-5 flex-col bg-[#FAFAFA] py-20">
           <div className="flex flex-col gap-2 w-4/5 flex-wrap">
@@ -70,10 +70,10 @@ export default function Header() {
               Problems trying to resolve the conflict between
             </p>
           </div>
-          <div className="flex gap-8 flex-wrap text-base">
-            <div className="flex-shrink-0 relative">
+          <div className="flex gap-8 flex-wrap text-base sm:justify-center sm:py-5">
+            <div className="flex-shrink-0 relative sm:w-[240px]">
               <img src={EditorsPick1} />
-              <div className="absolute bottom-0 left-0 w-2/3 pl-3 pb-3 flex items-center ">
+              <div className="absolute bottom-0 left-0 w-2/3 pl-3 pb-3 flex items-center">
                 <button className="bg-white hover:bg-gray-100 w-32 text-black font-bold py-2 px-4 rounded">
                   MEN
                 </button>
@@ -81,7 +81,7 @@ export default function Header() {
             </div>
             <div className="flex-shrink-0 relative">
               <img src={EditorsPick2} />
-              <div className="absolute bottom-0 left-0 w-2/3 pl-3 pb-3 flex items-center ">
+              <div className="absolute bottom-0 left-0 w-2/3 pl-3 pb-3 flex items-center">
                 <button className="bg-white hover:bg-gray-100 w-32 text-black font-bold py-2 px-4 rounded">
                   WOMEN
                 </button>
@@ -137,20 +137,20 @@ export default function Header() {
         <div className="flex flex-col">
           <Slider className="bg-[#23856D] items-end" slides={slides2} />
           <section className="CommonThings flex flex-wrap gap-5 flex-col bg-[#FAFAFA]">
-            <div className="flex justify-center gap-2 w-4/5">
+            <div className="flex justify-center sm:flex-wrap gap-2 w-4/5">
               <img src={HomePageHero3} />
-              <div className="text-black flex flex-col gap-3 justify-center items-start">
+              <div className="text-black flex flex-col gap-3 text-left justify-center items-start sm:w-full sm:items-center sm:text-center">
                 <h5 className="text-base font-bold text-gray-400">
                   SUMMER 2020
                 </h5>
-                <h2 className="text-[40px] text-left font-bold">
+                <h2 className="text-[40px] font-bold">
                   Part of the Neural Universe
                 </h2>
-                <h4 className="text-left w-2/3 text-[#737373] font-normal">
+                <h4 className="w-2/3 text-[#737373] font-normal sm:w-full">
                   We know how large objects will act, but things on a small
                   scale.
                 </h4>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap sm:justify-center">
                   <button className="bg-[#2DC071] text-sm w-[171px] hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
                     BUY NOW
                   </button>
@@ -162,9 +162,9 @@ export default function Header() {
             </div>
           </section>
           <section className="CommonThings flex flex-col w-full justify-center py-20">
-            <div className="flex flex-col gap-2 w-4/5 items-center flex-wrap py-5">
+            <div className="flex flex-col gap-2 w-4/5 items-center flex-wrap py-5 sm:w-full">
               <h2 className="font-bold text-[40px] text-black">
-                Featured Posts
+                Featured Products
               </h2>
               <p className="font-normal text-sm text-gray-400">
                 Problems trying to resolve the conflict between the two major

@@ -40,27 +40,27 @@ const footerInfo = [
 export default function Footer() {
   return (
     <>
-      <div className="flex w-full flex-col items-center px-24 justify-center bg-white">
-        <div className="flex w-4/5 justify-between flex-wrap items-center py-5">
-          <div className="text-[#252B42] flex items-center gap-24">
+      <div className="flex w-full flex-col items-center px-24 justify-center bg-white sm:justify-center sm:p-0">
+        <div className="flex w-4/5 justify-between flex-wrap items-center py-5 sm:gap-3">
+          <div className="text-[#252B42] flex items-center gap-24 sm:w-full">
             <h3 className="text-2xl font-bold">Bandage</h3>
           </div>
           <hr />
-          <div className="flex gap-2">
+          <div className="flex gap-2 sm:w-full">
             <FontAwesomeIcon icon={faInstagram} style={{ color: "#23A6F0" }} />
             <FontAwesomeIcon icon={faFacebook} style={{ color: "#23A6F0" }} />
             <FontAwesomeIcon icon={faTwitter} style={{ color: "#23A6F0" }} />
           </div>
         </div>
-        <div className="flex justify-start w-4/5 py-5">
-          <div className="flex basis-2/3">
+        <div className="flex justify-start w-4/5 py-5 flex-wrap sm:gap-5">
+          <div className="flex basis-2/3 sm:flex-wrap sm:gap-5">
             {footerInfo.map((info, index) => (
               <div
                 key={index}
-                className="w-full flex flex-col relative text-black text-left gap-y-2"
+                className="w-full flex flex-col relative text-black text-left gap-y-2  sm:gap-2"
               >
                 <h2 className="text-base font-bold">{info.title}</h2>
-                <ul className="text-sm font-bold text-[#737373]">
+                <ul className="text-sm font-bold text-[#737373] sm:gap-2">
                   <li>
                     <a href="#">{info.one}</a>
                   </li>
