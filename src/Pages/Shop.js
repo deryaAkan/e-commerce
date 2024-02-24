@@ -267,8 +267,8 @@ const Shop = () => {
 
   return (
     <div className="flex flex-col justify-center items-center w-full">
-      <div className="flex w-3/4 px-12 justify-between flex-wrap items-center py-6">
-        <div className="text-[#252B42] flex items-center flex-grow gap-24">
+      <div className="flex w-3/4 px-12 justify-between flex-wrap items-center py-6 sm:gap-3 sm:justify-center">
+        <div className="text-[#252B42] flex items-center flex-grow gap-24 sm:justify-center">
           <h3 className="text-2xl font-bold">Shop</h3>
         </div>
         <p className="text-sm text-gray-300 font-bold ">Home -- Shop</p>

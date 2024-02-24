@@ -8,8 +8,8 @@ import shopSvg6 from "../assets/shoppage/fa-brands-6shopppsvg.svg";
 export default function Companies() {
   return (
     <>
-      <div className="flex w-full justify-center bg-[#FAFAFA] py-5">
-        <div className="flex flex-wrap px-24 w-4/5 justify-between">
+      <div className="flex w-full justify-center bg-[#FAFAFA] gap-10 py-5 px-5">
+        <div className="flex flex-wrap w-full justify-around sm:gap-5">
           <img src={shopSvg1}></img>
           <img src={shopSvg2}></img>
           <img src={shopSvg3}></img>

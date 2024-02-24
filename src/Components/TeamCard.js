@@ -2,7 +2,7 @@ import React from "react";
 
 function TeamCard({ members }) {
   return (
-    <div className="flex flex-wrap justify-between">
+    <div className="flex flex-wrap justify-center gap-5">
       {members.map((member, index) => (
         <div
           key={index}

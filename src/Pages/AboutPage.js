@@ -34,41 +34,35 @@ const AboutPage = () => {
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <div className="w-4/5 flex flex-col py-10">
-        <div className="text-black flex justify-between items-center">
-          <div className=" flex flex-col w-1/3 gap-5">
-            <div className="font-bold text-[#252B42] text-left flex flex-col">
-              <h5 className="text-2xl">ABOUT COMPANY</h5>
-              <h1 className="text-[58px]">ABOUT US</h1>
-              <h4 className="font-normal text-[#737373]">
+      <div className="w-3/4 flex flex-col py-10">
+        <div className="text-black flex justify-between text-left items-center sm:flex-wrap sm:justify-center sm:text-center">
+          <div className=" flex flex-col w-1/3 gap-5 sm:w-full">
+            <div className="font-bold text-[#252B42] flex flex-col ">
+              <h5 className="text-2xl sm:hidden">ABOUT COMPANY</h5>
+              <h1 className="text-[58px] sm:text-[40px] sm:w-full">ABOUT US</h1>
+              <h4 className="font-normal text-[#737373] sm:w-full">
                 We know how large objects will act, but things on a small scale.
               </h4>
             </div>
-            <button className="bg-[#23A6F0] text-white font-bold text-sm py-2 px-4 rounded hover:bg-blue-300">
-              Get Quote Now
-            </button>
-          </div>
-          <div className="relative pb-40">
-            <img
-              className="absolute mb-[45rem] ml-[6rem] mt-0"
-              src={aboutimg1}
-              alt="imggg"
-            />{" "}
-            <div className="flex flex-wrap">
-              <img
-                className="mt-0 ml-0 mb-[26rem]"
-                src={aboutSvg2}
-                alt="imggg"
-              />{" "}
-              <img className="ml-0 mt-[26rem]" src={aboutSvg4} alt="imggg" />{" "}
-              <img className="mb-4" src={aboutSvg1} alt="imggg" />{" "}
-              <img className="mb-4 ml-4" src={aboutSvg3} alt="imggg" />{" "}
-              <img className="mb-[14rem]" src={aboutSvg5} alt="imggg" />{" "}
+            <div className="w-full flex justify-start">
+              <button className="bg-[#23A6F0] text-white font-bold text-sm py-4 px-14 rounded hover:bg-blue-300">
+                Get Quote Now
+              </button>
             </div>
+          </div>
+          <div className="relative pb-20">
+            {/*<div className="flex flex-wrap">
+              <img className="mr-4" src={aboutSvg2} alt="imggg" />
+              <img className="mr-4" src={aboutSvg4} alt="imggg" />
+              <img className="mr-4 mb-4" src={aboutSvg1} alt="imggg" />
+              <img className="mr-4 mb-4" src={aboutSvg3} alt="imggg" />
+              <img className="mb-[14rem]" src={aboutSvg5} alt="imggg" />
+  </div> */}
+            <img className="" src={aboutimg1} alt="imggg" />
           </div>
         </div>
       </div>
-      <div className="flex w-4/5 items-center text-left justify-between">
+      <div className="flex w-3/4 items-center text-left justify-between px-20">
         <div className="flex flex-col w-1/3 gap-5">
           <p className="text-[#E74040] text-sm font-normal]">problem trying</p>
           <h2 className="text-[#252B42] text-2xl font-bold">
@@ -82,7 +76,7 @@ const AboutPage = () => {
           </p>
         </div>
       </div>
-      <div className="flex w-4/5 items-center text-left justify-between font-bold py-10">
+      <div className="flex w-3/4 items-center text-left justify-between font-bold py-10 px-20">
         <div className="flex flex-col justify-center items-center">
           <h2 className="text-[58px] text-[#252B42]">15K</h2>
           <p className="text-[#737373] text-base">Happy Customers</p>
@@ -100,21 +94,21 @@ const AboutPage = () => {
           <p className="text-[#737373] text-base">Top Partners</p>
         </div>
       </div>
-      <div className="py-20">
+      <div className="flex py-20 w-3/4 justify-center">
         <img src={videoAbout} />
       </div>
 
-      <div className="flex flex-col w-4/5 justify-between py-20 gap-5">
+      <div className="flex flex-col w-3/4 py-20 gap-5">
         <h2 className="text-[40px] font-bold text-[#252B42]">Meet Our Team</h2>
         <p className="text-sm text-[#737373] font-bold">
           Problems trying to resolve the conflict between the two major realms
           of Classical physics: Newtonian mechanics{" "}
         </p>
-        <TeamCard className="justify-between" members={meetOurTeam} />
+        <TeamCard members={meetOurTeam} />
       </div>
 
       <div className="flex flex-col w-full justify-center items-center py-10 text-gray-600 bg-[#FAFAFAFA]">
-        <div className="flex flex-col w-4/5 gap-5">
+        <div className="flex flex-col w-3/4 gap-5">
           <h2 className="text-[40px] font-bold">Big Companies Are Here</h2>
           <p className="text-sm">
             Problems trying to resolve the conflict between the two major realms
@@ -132,9 +126,11 @@ const AboutPage = () => {
               The gradual accumulation of information about atomic and
               small-scale behavior during the first quarter of the 20th{" "}
             </p>
-            <button className=" border-2 border-white text-white font-bold py-2 px-4 rounded">
-              Button
-            </button>
+            <div className="w-full flex justify-start">
+              <button className=" border-2 border-white text-white font-bold py-2 px-10 rounded">
+                Button
+              </button>
+            </div>
           </div>
         </div>
         <img src={aboutimg2} alt="imgg" />
