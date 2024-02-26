@@ -43,6 +43,7 @@ export default function Slider({
 
   const prev = () =>
     setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1));
+
   const next = () =>
     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
 
@@ -50,7 +51,7 @@ export default function Slider({
     if (!autoSlide) return;
     const slideInterval = setInterval(next, autoSlideInterval);
     return () => clearInterval(slideInterval);
-  }, []);
+  }, [autoSlide, autoSlideInterval]);
 
   return (
     <div className="overflow-hidden relative xl:rounded-lg l:rounded-lg">
@@ -63,12 +64,18 @@ export default function Slider({
             <img src={slide.img} alt={`Slide ${index}`} className="w-full" />
             <div className="absolute top-0 left-0 w-2/3 h-full flex justify-center items-center">
               <div className="flex flex-col text-white gap-8">
-                <h2 className="font-bold text-xl flex justify-start">{slide.dateHero}</h2>
-                <h1 className="font-bold text-left text-[58px]">{slide.title}</h1>
-                <p className="font-normal text-lg text-left w-2/3 flex">{slide.description}</p>
+                <h2 className="font-bold text-xl flex justify-start">
+                  {slide.dateHero}
+                </h2>
+                <h1 className="font-bold text-left text-[58px]">
+                  {slide.title}
+                </h1>
+                <p className="font-normal text-lg text-left w-2/3 flex">
+                  {slide.description}
+                </p>
                 <button className="bg-[#2DC071] hover:bg-white cursor-pointer text-white font-bold py-2 px-5 max-w-fit text-xl rounded">
                   {slide.button}
-      </button>
+                </button>
               </div>
               <img src={slide.onImg} />
             </div>

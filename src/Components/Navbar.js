@@ -15,23 +15,23 @@ export default function Navbar() {
           </nav>
         </div>
         <div className="text-[#23A6F0] text-sm flex items-center gap-2 flex-grow justify-end sm:flex-wrap sm:justify-center sm:flex-col">
-          <img src={loginSvg} />
-          <a className="font-bold" href="#">
+          <img alt="login stuff" src={loginSvg} />
+          <a className="font-bold" href="https://google.com">
             Login /
           </a>
-          <a className="font-bold" href="#">
+          <a className="font-bold" href="https://google.com">
             Register
           </a>
           <div className="flex items-center gap-2 sm:flex-col">
-            <a href="#">
-              <img src={searchSvg} />
+            <a href="https://google.com">
+              <img alt="login stuff" src={searchSvg} />
             </a>
-            <a href="#">
-              <img src={shopCardSvg} />
+            <a href="https://google.com">
+              <img alt="login stuff" src={shopCardSvg} />
             </a>
             <p>1</p>
-            <a href="#">
-              <img src={favsSvg} />
+            <a href="https://google.com">
+              <img alt="login stuff" src={favsSvg} />
             </a>
             <p>1</p>
           </div>

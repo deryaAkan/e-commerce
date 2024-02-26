@@ -19,7 +19,7 @@ export default function ProductPage() {
       newPrice: "$6.48",
     },
     {
-      id: 1,
+      id: 2,
       name: "Graphic Design",
       category: "English Department",
       image: yeto1,
@@ -27,7 +27,7 @@ export default function ProductPage() {
       newPrice: "$6.48",
     },
     {
-      id: 1,
+      id: 3,
       name: "Graphic Design",
       category: "English Department",
       image: yeto1,
@@ -35,7 +35,7 @@ export default function ProductPage() {
       newPrice: "$6.48",
     },
     {
-      id: 1,
+      id: 4,
       name: "Graphic Design",
       category: "English Department",
       image: yeto1,
@@ -43,7 +43,7 @@ export default function ProductPage() {
       newPrice: "$6.48",
     },
     {
-      id: 1,
+      id: 5,
       name: "Graphic Design",
       category: "English Department",
       image: yeto1,
@@ -51,7 +51,7 @@ export default function ProductPage() {
       newPrice: "$6.48",
     },
     {
-      id: 1,
+      id: 6,
       name: "Graphic Design",
       category: "English Department",
       image: yeto1,
@@ -59,7 +59,7 @@ export default function ProductPage() {
       newPrice: "$6.48",
     },
     {
-      id: 1,
+      id: 7,
       name: "Graphic Design",
       category: "English Department",
       image: yeto1,
@@ -67,7 +67,7 @@ export default function ProductPage() {
       newPrice: "$6.48",
     },
     {
-      id: 1,
+      id: 8,
       name: "Graphic Design",
       category: "English Department",
       image: yeto1,
@@ -138,7 +138,7 @@ export default function ProductPage() {
           <hr className="text-[#858585] border"></hr>
           <div className="flex justify-center gap-20 py-5 text-[#737373] items-start sm:flex-col sm:items-center">
             <img className="basis-1/3" src={yeto} />
-            <div className="flex flex-col text-sm basis-1/4 text-left gap-4 sm:text-center sm:w-1/2">
+            <div className="flex flex-col text-sm basis-1/4 text-left gap-4 sm:text-center">
               <h3 className="text-2xl text-[#252B42]">
                 the quick fox jumps over
               </h3>
