@@ -15,7 +15,7 @@ const categories = [
 
 function CategoryCard() {
   return (
-    <div className="flex justify-center gap-5 items-center w-3/4 sm:flex-wrap">
+    <div className="flex justify-center gap-5 items-center w-3/4 sm:flex-col">
       {categories.map((category, index) => (
         <div
           key={index}

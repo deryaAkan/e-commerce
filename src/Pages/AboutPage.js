@@ -62,7 +62,7 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-3/4 items-center text-left justify-between px-20">
+      <div className="flex w-3/4 items-center text-left justify-between px-20 sm:flex-col sm:gap-5">
         <div className="flex flex-col w-1/3 gap-5">
           <p className="text-[#E74040] text-sm font-normal]">problem trying</p>
           <h2 className="text-[#252B42] text-2xl font-bold">
@@ -76,7 +76,7 @@ const AboutPage = () => {
           </p>
         </div>
       </div>
-      <div className="flex w-3/4 items-center text-left justify-between font-bold py-10 px-20">
+      <div className="flex w-3/4 items-center text-left justify-between font-bold py-10 px-20 sm:flex-col sm:gap-5">
         <div className="flex flex-col justify-center items-center">
           <h2 className="text-[58px] text-[#252B42]">15K</h2>
           <p className="text-[#737373] text-base">Happy Customers</p>
@@ -94,7 +94,7 @@ const AboutPage = () => {
           <p className="text-[#737373] text-base">Top Partners</p>
         </div>
       </div>
-      <div className="flex py-20 w-3/4 justify-center">
+      <div className="flex py-20 w-3/4 justify-center sm:py-10">
         <img src={videoAbout} />
       </div>
 
@@ -117,23 +117,23 @@ const AboutPage = () => {
           <Companies />
         </div>
       </div>
-      <div className="bg-[#2A7CC7] w-full flex justify-between items-center">
+      <div className="bg-[#2A7CC7] w-full flex justify-between items-center sm:justify-center sm:py-10">
         <div className="flex w-2/3 justify-center">
-          <div className="flex flex-col text-left w-[400px] gap-5">
+          <div className="flex flex-col text-left w-[400px] gap-5 sm:text-center">
             <h5 className="text-base font-bold">WORK WITH US</h5>
             <h2 className="text-[40px] font-bold">Now Let's grow Yours</h2>
             <p className="text-base font-normal">
               The gradual accumulation of information about atomic and
               small-scale behavior during the first quarter of the 20th{" "}
             </p>
-            <div className="w-full flex justify-start">
+            <div className="w-full flex justify-start sm:justify-center">
               <button className=" border-2 border-white text-white font-bold py-2 px-10 rounded">
                 Button
               </button>
             </div>
           </div>
         </div>
-        <img src={aboutimg2} alt="imgg" />
+        <img className="sm:hidden" src={aboutimg2} alt="imgg" />
       </div>
     </div>
   );

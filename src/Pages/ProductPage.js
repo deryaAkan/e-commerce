@@ -87,8 +87,8 @@ export default function ProductPage() {
 
   return (
     <>
-      <div className="flex flex-col items-center gap-5">
-        <div className="flex w-3/4 gap-5 font-bold">
+      <div className="flex flex-col items-center gap-5 py-10">
+        <div className="flex w-3/4 gap-5 font-bold sm:flex-col">
           <div className="basis-1/2">
             <Slider className="bg-black xl:hidden" slides={slides3} />
           </div>
@@ -136,9 +136,9 @@ export default function ProductPage() {
             </p>
           </div>
           <hr className="text-[#858585] border"></hr>
-          <div className="flex justify-center gap-20 py-5 text-[#737373] items-start">
+          <div className="flex justify-center gap-20 py-5 text-[#737373] items-start sm:flex-col sm:items-center">
             <img className="basis-1/3" src={yeto} />
-            <div className="flex flex-col text-sm basis-1/4 text-left gap-4">
+            <div className="flex flex-col text-sm basis-1/4 text-left gap-4 sm:text-center sm:w-1/2">
               <h3 className="text-2xl text-[#252B42]">
                 the quick fox jumps over
               </h3>
