@@ -8,6 +8,7 @@ import TeamPage from "./Pages/TeamPage";
 import AboutPage from "./Pages/AboutPage";
 import ContactPage from "./Pages/ContactPage";
 import ProductPage from "./Pages/ProductPage";
+import SignUpForm from "./Components/SignUpForm";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/about" component={AboutPage} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/productpage" component={ProductPage} />
+        <Route path="/signup" component={SignUpForm} />
       </Switch>
       <Footer />
     </div>

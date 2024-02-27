@@ -18,7 +18,7 @@ export default function Header() {
       {pathname.includes("/about") || pathname.includes("/contact") ? (
         <Navbar />
       ) : (
-        <header className="CommonThings w-full flex flex-col">
+        <header className="w-full flex flex-col">
           <div className="flex w-full px-16 bg-[#252B42] justify-center">
             <div className="flex w-3/4 justify-between flex-wrap pt-3 pb-3 sm:hidden">
               <div className="flex gap-2">
