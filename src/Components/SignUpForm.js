@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const instance = axios.create({
   baseURL: "https://workintech-fe-ecommerce.onrender.com",
@@ -13,7 +14,9 @@ export default function SignUpForm() {
     formState: { errors },
   } = useForm();
 
+  const [loading, setLoading] = useState(false);
   const [roles, setRoles] = useState([]);
+  const [shouldRenderStoreInputs, setShouldRenderStoreInputs] = useState(false);
 
   useEffect(() => {
     instance
@@ -26,16 +29,27 @@ export default function SignUpForm() {
       });
   }, []);
 
-  const defaultRoleId = roles.length >= 3 ? roles[2].id : "";
+  const onSubmit = (data) => {
+    console.log("DATA GİDİYOR DATA", data);
+    setLoading(true);
 
-  const onSubmit = async (data) => {
-    try {
-      //   const response = await instance.post("/signup", data);
-      //   console.log("DATAAAAA", response.data);
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
+    setTimeout(() => {
+      instance
+        .post("/signup", data)
+        .then((response) => {
+          toast.success(
+            "Sign up successful. Check your email to activate your account!"
+          );
+          console.log("Response:", response.data);
+        })
+        .catch((error) => {
+          toast.error("Failed to sign up. Please try again later.");
+          console.error(error);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }, 1000);
   };
 
   return (
@@ -52,12 +66,12 @@ export default function SignUpForm() {
                 className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
                 type="text"
                 placeholder="Full Name"
-                {...register("fullName", { required: true, minLength: 3 })}
+                {...register("name", { required: true, minLength: 3 })}
               />
-              {errors.fullName && errors.fullName.type === "required" && (
+              {errors.name && errors.name.type === "required" && (
                 <span className="text-red-700">This field is required</span>
               )}
-              {errors.fullName && errors.fullName.type === "minLength" && (
+              {errors.name && errors.name.type === "minLength" && (
                 <span className="text-red-700">
                   Minimum length is 3 characters
                 </span>
@@ -109,78 +123,93 @@ export default function SignUpForm() {
               {errors.confirmPassword && (
                 <span className="text-red-700">Passwords do not match</span>
               )}
-              <select
-                className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
-                defaultValue={defaultRoleId} // Default value'yi defaultRoleId state'inden alıyoruz
-                {...register("role_id")}
+              {roles.length > 0 && (
+                <select
+                  className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
+                  defaultValue={roles[2].id}
+                  {...register("role_id")}
+                  onChange={(e) => {
+                    const selectedRoleId = e.target.value;
+                    const shouldRender = selectedRoleId === "2";
+                    setShouldRenderStoreInputs(shouldRender);
+                  }}
+                >
+                  {roles.map((role) => (
+                    <option key={role.id} value={role.id}>
+                      {role.code}
+                    </option>
+                  ))}
+                </select>
+              )}
+
+              {shouldRenderStoreInputs ? (
+                <>
+                  <input
+                    className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
+                    type="text"
+                    placeholder="Store Name"
+                    {...register("store.name", {
+                      required: "You must enter store name",
+                      minLength: {
+                        value: 3,
+                        message:
+                          "Store Name must be at least 3 characters long",
+                      },
+                    })}
+                  />
+                  {errors.store?.name && (
+                    <p className="text-red-700">
+                      Store Name must be at least 3 characters long
+                    </p>
+                  )}
+                  <input
+                    className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
+                    type="tel"
+                    placeholder="Store Phone"
+                    {...register("store.phone", {
+                      required: true,
+                      minLength: 3,
+                      pattern: {
+                        value: /^(?:\+?90|0)?[0-9]{10}$/,
+                        message: "Please enter a valid Turkish phone number",
+                      },
+                    })}
+                  />
+                  <input
+                    className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
+                    type="text"
+                    placeholder="Store Tax ID"
+                    {...register("store.tax_no", {
+                      required: true,
+                      pattern: {
+                        value: /^T\d{4}V\d{6}$/,
+                        message:
+                          "Please enter a valid Store Tax ID matching the pattern TXXXXVXXXXXX",
+                      },
+                    })}
+                  />
+                  <input
+                    className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
+                    type="text"
+                    placeholder="Store Bank Account"
+                    {...register("store.bank_account", {
+                      required: true,
+                      pattern: {
+                        value: /^TR\d{2}\d{5}\d{1}[0-9A-Z]{16}$/,
+                        message: "Please enter a valid Turkish IBAN",
+                      },
+                    })}
+                  />
+                </>
+              ) : (
+                false
+              )}
+
+              <button
+                className="bg-[#23A6F0] text-white font-normal text-sm py-2 px-4 rounded hover:bg-blue-300 mx-auto"
+                disabled={loading}
               >
-                {roles.map((role) => (
-                  <option key={role.id} value={role.id}>
-                    {role.code}
-                  </option>
-                ))}
-              </select>
-
-              <>
-                <input
-                  className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
-                  type="text"
-                  placeholder="Store Name"
-                  {...register("storeName", {
-                    required: true,
-                    minLength: 3,
-                  })}
-                />
-                {errors.storeName && errors.storeName.type === "required" && (
-                  <span className="text-red-700">Store Name is required</span>
-                )}
-                {errors.storeName && errors.storeName.type === "minLength" && (
-                  <span className="text-red-700">
-                    Store Name must be at least 3 characters long
-                  </span>
-                )}
-                <input
-                  className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
-                  type="tel"
-                  placeholder="Store Phone"
-                  {...register("storeName", {
-                    required: true,
-                    minLength: 3,
-                    pattern: {
-                      value: /^(?:\+?90|0)?[0-9]{10}$/,
-                      message: "Please enter a valid Turkish phone number",
-                    },
-                  })}
-                />
-                <input
-                  className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
-                  type="text"
-                  placeholder="Store Tax ID"
-                  {...register("taxID", {
-                    required: true,
-                    pattern: {
-                      value: /^T\d{4}V\d{6}$/,
-                      message:
-                        "Please enter a valid Store Tax ID matching the pattern TXXXXVXXXXXX",
-                    },
-                  })}
-                />
-                <input
-                  className="text-sm max-w-fit border-2 text-[#737373] bg-gray-50 border-gray-200 py-2 px-4"
-                  type="text"
-                  placeholder="Store Bank Account"
-                  {...register("bankAccount", {
-                    required: true,
-                    pattern: {
-                      value: /^TR\d{2}\d{5}\d{1}[0-9A-Z]{16}$/,
-                      message: "Please enter a valid Turkish IBAN",
-                    },
-                  })}
-                />
-              </>
-
-              <button className="bg-[#23A6F0] text-white font-normal text-sm py-2 px-4 rounded hover:bg-blue-300 mx-auto">
-                Sign Up
+                {loading ? "Submitting..." : "Sign Up"}
               </button>
             </form>
           </div>
