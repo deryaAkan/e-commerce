@@ -41,6 +41,7 @@ export default function SignUpForm() {
             "Sign up successful. Check your email to activate your account!"
           );
           console.log("Response:", response.data);
+          window.history.back();
         })
         .catch((error) => {
           toast.error("Failed to sign up. Please try again later.");

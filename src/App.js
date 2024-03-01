@@ -1,4 +1,7 @@
+import React from "react";
 import "./App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Layouts/Footer";
 import Header from "./Layouts/Header";
 import Home from "./Pages/Home";
@@ -24,6 +27,7 @@ function App() {
         <Route path="/signup" component={SignUpForm} />
       </Switch>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }
