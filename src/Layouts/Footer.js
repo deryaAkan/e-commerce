@@ -41,7 +41,7 @@ export default function Footer() {
   return (
     <>
       <div className="flex w-full flex-col items-center px-24 justify-center bg-white sm:justify-center sm:p-0">
-        <div className="flex w-4/5 justify-between flex-wrap items-center py-5 sm:gap-3">
+        <div className="flex w-4/5 justify-between flex-wrap items-center py-5 sm:gap-3 sm:bg-[#FAFAFA] sm:w-full sm:px-10">
           <div className="text-[#252B42] flex items-center gap-24 sm:w-full">
             <h3 className="text-2xl font-bold">Bandage</h3>
           </div>
@@ -71,7 +71,7 @@ export default function Footer() {
               </div>
             ))}
           </div>
-          <div className="flex flex-col text-left flex-grow basis-1/3">
+          <div className="flex flex-col text-left flex-grow basis-1/3 gap-3">
             <h2 className="text-base font-bold text-black">Get in touch</h2>
             <form className="flex">
               <input
@@ -79,16 +79,18 @@ export default function Footer() {
                 type="text"
                 placeholder="Your E-mail"
               />
-              <button className="bg-[#23A6F0]  text-white font-normal text-sm py-2 px-4 rounded hover:bg-blue-300">
+              <button className="bg-[#23A6F0]  text-white font-normal text-sm py-4 px-6 rounded hover:bg-blue-300">
                 Subscribe
               </button>
             </form>
           </div>
         </div>
-        <div className="flex justify-start w-4/5 py-5">
-          <p className="text-base font-bold text-[#737373]">
-            Made With Love By Finland All Right Reserved
-          </p>
+        <div className="w-full justify-center flex bg-[#FAFAFA]">
+          <div className="flex justify-start w-4/5 py-5">
+            <p className="text-base font-bold text-[#737373]">
+              Made With Love By Finland All Right Reserved
+            </p>
+          </div>
         </div>
       </div>
     </>

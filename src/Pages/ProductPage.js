@@ -1,4 +1,4 @@
-import Slider from "../Components/Slider";
+import Slider3 from "../Components/Slider3";
 import productPageSlider1 from "../assets/productpage/single-product-1-cover-2.png";
 import productPageThumb1 from "../assets/productpage/single-product-1-thumb-1.png";
 import productPageThumb2 from "../assets/productpage/single-product-1-thumb-2.png";
@@ -89,10 +89,10 @@ export default function ProductPage() {
     <>
       <div className="flex flex-col items-center gap-5 py-10">
         <div className="flex w-3/4 gap-5 font-bold sm:flex-col">
-          <div className="basis-1/2">
-            <Slider className="bg-black xl:hidden" slides={slides3} />
+          <div className="">
+            <Slider3 className="bg-black" slides={slides3} />
           </div>
-          <div className="basis-1/2 flex flex-col text-sm text-[#252B42] text-left gap-5 py-5">
+          <div className="flex flex-col text-sm text-[#252B42] text-left gap-5 py-5">
             <p className="text-xl">Floating Phone</p>
             <div className="flex gap-2">
               <div className="flex gap-2">
