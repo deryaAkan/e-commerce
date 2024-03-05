@@ -22,7 +22,7 @@ export default function ContactPage() {
       <div className="w-full flex flex-col items-center justify-center">
         <div className="w-3/4 justify-center flex flex-col py-10  sm:justify-center">
           <div className="text-[#252B42] flex justify-between items-center sm:flex-col">
-            <div className=" flex flex-col w-1/3 gap-5 sm:w-2/3">
+            <div className=" flex flex-col w-1/3 gap-5 sm:w-full">
               <div className="font-bold text-[#252B42] text-left flex flex-col gap-5 sm:text-center">
                 <h5 className="text-2xl">CONTACT US</h5>
                 <h1 className="text-[58px] sm:text-[40px]">
@@ -32,7 +32,7 @@ export default function ContactPage() {
                   We know how large objects will act, but things on a small
                   scale.
                 </h4>
-                <div className="flex flex-col text-2xl font-bold text-[#252B42] gap-5">
+                <div className="flex flex-col text-2xl font-bold text-[#252B42] gap-5 sm:text-l">
                   <p>Phone ; +451 215 215 </p>
                   <p>Fax : +451 215 215</p>
                 </div>
@@ -57,34 +57,19 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="relative sm:justify-center">
-              <img
-                className="absolute mb-[45rem] ml-[5rem] mt-0"
-                src={contactimg1}
-                alt="imggg"
-              />{" "}
-              <div className="flex flex-wrap">
-                <img
-                  className="mt-0 ml-0 mb-[26rem]"
-                  src={aboutSvg2}
-                  alt="imggg"
-                />{" "}
-                <img className="ml-0 mt-[26rem]" src={aboutSvg4} alt="imggg" />{" "}
-                <img className="mb-4" src={aboutSvg1} alt="imggg" />{" "}
-                <img className="mb-4 ml-4" src={aboutSvg3} alt="imggg" />{" "}
-                <img className="mb-[14rem]" src={aboutSvg5} alt="imggg" />{" "}
-              </div>
+              <img className="" src={contactimg1} alt="imggg" />{" "}
             </div>
           </div>
         </div>
-        <div className="w-3/4 justify-center flex flex-col pt-40 items-center gap-5 text-[#252B42] sm:w-full">
+        <div className="w-3/4 justify-center flex flex-col py-20 items-center gap-5 text-[#252B42] sm:bg-[#FAFAFA] sm:w-full">
           <div className="flex flex-col font-bold w-1/2">
             <p className="text-sm">VISIT OUR OFFICE</p>
             <p className="text-[40px]">
               We help small businesses with big ideas
             </p>
           </div>
-          <div className="w-3/4 justify-between flex items-center text-[#252B42] font-bold text-sm sm:flex-col">
-            <div className="flex flex-col items-center py-10 gap-5 px-10">
+          <div className="w-full justify-center gap-5 flex items-center text-[#252B42] font-bold text-sm sm:flex-col">
+            <div className="flex flex-col bg-white items-center py-10 gap-5 px-10">
               <img src={contactSvg1} />
               <p>georgia.young@example.com</p>
               <p>georgia.young@example.com</p>
@@ -102,7 +87,7 @@ export default function ContactPage() {
                 Submit Request
               </button>
             </div>
-            <div className="flex flex-col items-center py-10 gap-5 px-10">
+            <div className="flex flex-col bg-white items-center py-10 gap-5 px-10">
               <img src={contactSvg3} />
               <p>georgia.young@example.com</p>
               <p>georgia.young@example.com</p>
