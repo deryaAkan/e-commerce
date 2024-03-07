@@ -1,19 +1,50 @@
-const updateRoles = (roles) => ({
-  type: "UPDATE_ROLES",
-  roles,
+import axios from "axios";
+
+const baseURL = "https://workintech-fe-ecommerce.onrender.com";
+const instance = axios.create({ baseURL });
+
+export const fetchRoles = () => (dispatch) => {
+  dispatch({ type: "global/fetchRoles/pending" });
+
+  instance
+    .get("/roles")
+    .then((res) => {
+      dispatch(setRoles(res.data));
+    })
+    .catch((err) => {
+      dispatch({ type: "global/fetchRoles/rejected", payload: err.message });
+      console.error("Error fetching roles:", err);
+    });
+};
+
+export const setRoles = (roles) => ({
+  type: "SET_ROLES",
+  payload: roles,
 });
 
-const updateCategories = (categories) => ({
-  type: "UPDATE_CATEGORIES",
-  categories,
+export const setCategories = (categories) => ({
+  type: "SET_CATEGORIES",
+  payload: categories,
 });
 
-const updateTheme = (theme) => ({
-  type: "UPDATE_THEME",
-  theme,
+export const setTheme = (theme) => ({
+  type: "SET_THEME",
+  payload: theme,
 });
 
-const updateLanguage = (language) => ({
-  type: "UPDATE_LANGUAGE",
-  language,
+export const setLanguage = (language) => ({
+  type: "SET_LANGUAGE",
+  payload: language,
 });
+
+export const getRoles = () => (dispatch, getState) => {
+  instance
+    .get("/roles")
+    .then((res) => {
+      console.log("gelen data", res.data);
+      dispatch(setRoles(res.data));
+    })
+    .catch((err) => {
+      console.log("hata", err);
+    });
+};

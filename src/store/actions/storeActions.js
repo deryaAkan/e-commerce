@@ -1,4 +1,8 @@
-const updateStore = (storeData) => ({
-  type: "UPDATE_STORE",
-  storeData,
+export const storeActions = {
+  setStore: "SET_STORE",
+};
+
+export const setStoreCreator = (store) => ({
+  type: storeActions.setStore,
+  payload: store,
 });

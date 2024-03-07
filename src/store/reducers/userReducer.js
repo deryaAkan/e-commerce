@@ -9,7 +9,21 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    //ACTION CASELERİ
+    case "SET_USER_NAME":
+      return {
+        ...state,
+        name: action.payload,
+      };
+    case "SET_USER_EMAIL":
+      return {
+        ...state,
+        email: action.payload,
+      };
+    case "SET_USER_ID":
+      return {
+        ...state,
+        role_id: action.payload,
+      };
     default:
       return state;
   }
