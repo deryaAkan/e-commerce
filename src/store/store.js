@@ -5,5 +5,6 @@ import {
 } from "redux";
 import logger from "redux-logger";
 import { thunk } from "redux-thunk";
+import globalReducer from "./reducers/globalReducer";
 
-export const store = createStore(reducers, applyMiddleware(thunk, logger));
+export const store = createStore(globalReducer, applyMiddleware(thunk, logger));
