@@ -18,10 +18,10 @@ export default function Navbar() {
           </div>
           <div className="text-[#23A6F0] text-sm flex items-center gap-2 flex-grow justify-end sm:flex-wrap sm:justify-center sm:flex-col">
             <img alt="login stuff" src={loginSvg} />
-            <a className="font-bold" href="https://google.com">
+            <Link to="/login" className="font-bold">
               Login /
-            </a>
-            <Link to="/signup" className="font-bold" href="https://google.com">
+            </Link>
+            <Link to="/signup" className="font-bold">
               Register
             </Link>
             <div className="flex items-center gap-2 sm:flex-col">
