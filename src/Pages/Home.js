@@ -1,7 +1,5 @@
 import Slider from "../Components/Slider";
 import Slider2 from "../Components/Slider2";
-
-import HomePageHero1 from "../assets/homepage/shop-hero-1-product-slide-1.png";
 import HomePageHero2 from "../assets/homepage/shop-hero-2-product-slide-2.jpg";
 import HomePageHero3 from "../assets/homepage/hero-cover-1.png";
 import EditorsPick1 from "../assets/homepage/media bg-covereditorspick1.png";
@@ -11,7 +9,6 @@ import EditorsPick4 from "../assets/homepage/filtereditorspick3.png";
 import BestSellerCard from "../Components/BestSellerCard";
 import shophero2 from "../assets/homepage/shop-hero-2-png-picture-1.png";
 import FeaturedCard from "../Components/FeaturedPostsCard";
-import Slider2 from "../Components/Slider2";
 
 const slides2 = [
   {
@@ -48,7 +45,7 @@ export default function Header() {
   return (
     <main className="">
       <div className="flex flex-col">
-        <Slider2 slides={slides1} />
+        <Slider2 />
         <section className="CommonThings flex flex-wrap gap-5 flex-col bg-[#FAFAFA] py-20">
           <div className="flex flex-col gap-2 w-4/5 flex-wrap">
             <h2 className="font-bold text-2xl text-black">EDITOR'S PICK</h2>
