@@ -5,7 +5,7 @@ const initialState = {
   language: "",
 };
 
-const globalReducer = (state = initialState, action) => {
+export const globalReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_ROLES":
       return {
@@ -31,5 +31,3 @@ const globalReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default globalReducer;

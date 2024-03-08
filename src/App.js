@@ -12,7 +12,7 @@ import AboutPage from "./Pages/AboutPage";
 import ContactPage from "./Pages/ContactPage";
 import ProductPage from "./Pages/ProductPage";
 import SignUpForm from "./Components/SignUpForm";
-import LoginForm from "./Components/LoginForm";
+import LoginForm1 from "./Components/LoginForm1";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         <Route path="/contact" component={ContactPage} />
         <Route path="/productpage" component={ProductPage} />
         <Route path="/signup" component={SignUpForm} />
-        <Route path="/login" component={LoginForm} />
+        <Route path="/login" component={LoginForm1} />
       </Switch>
       <Footer />
       <ToastContainer />

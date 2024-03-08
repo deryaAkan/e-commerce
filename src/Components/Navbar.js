@@ -3,7 +3,7 @@ import loginSvg from "../assets/header/loginvector.svg";
 import shopCardSvg from "../assets/header/shopCardSvg.svg";
 import searchSvg from "../assets/header/searchBar.svg";
 import favsSvg from "../assets/header/favs.svg";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -25,16 +25,16 @@ export default function Navbar() {
               Register
             </Link>
             <div className="flex items-center gap-2 sm:flex-col">
-              <a href="https://google.com">
+              <Link to="https://google.com">
                 <img alt="login stuff" src={searchSvg} />
-              </a>
-              <a href="https://google.com">
+              </Link>
+              <Link to="https://google.com">
                 <img alt="login stuff" src={shopCardSvg} />
-              </a>
+              </Link>
               <p>1</p>
-              <a href="https://google.com">
+              <Link to="https://google.com">
                 <img alt="login stuff" src={favsSvg} />
-              </a>
+              </Link>
               <p>1</p>
             </div>
           </div>
