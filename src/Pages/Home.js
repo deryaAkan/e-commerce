@@ -44,10 +44,10 @@ export default function Header() {
   }));
 
   return (
-    <main className="">
-      <div className="flex flex-col">
-        <Slider2 />
-        <section className="CommonThings flex flex-wrap gap-5 flex-col bg-[#FAFAFA] py-20">
+    <main className="w-full">
+      <div className="flex flex-col items-center w-full sm:w-full ">
+        <Slider className="bg-black xl:hidden" />
+        <section className="items-center flex flex-wrap gap-5 flex-col bg-[#FAFAFA] py-20">
           <div className="flex flex-col gap-2 w-4/5 flex-wrap">
             <h2 className="font-bold text-2xl text-black">EDITOR'S PICK</h2>
             <p className="font-normal text-sm text-gray-400">
@@ -91,8 +91,8 @@ export default function Header() {
             </div>
           </div>
         </section>
-        <section className="justify-center items-center flex flex-wrap gap-10 py-20">
-          <div className="flex flex-col gap-10 w-4/5 sm:w-full">
+        <section className="flex justify-center items-center flex-wrap gap-10 py-20">
+          <div className="flex flex-col gap-10 w-4/5">
             <div className="flex flex-col gap-2">
               <h2 className="font-bold text-xl text-gray-400 ">
                 Featured Products
@@ -104,7 +104,7 @@ export default function Header() {
                 Problems trying to resolve the conflict between
               </p>
             </div>
-            <div className="justify-center items-center flex flex-wrap gap-2 sm:flex-col">
+            <div className="justify-center items-center flex flex-wrap">
               {products.map((product) => (
                 <BestSellerCard
                   key={product.id}
@@ -118,10 +118,10 @@ export default function Header() {
             </div>
           </div>
         </section>
-        <div className="flex flex-col">
+        <div className="flex items-center w-full flex-col">
           <Slider2 className="bg-[#23856D] items-end" slides={slides2} />
           <section className="flex flex-wrap gap-5 flex-col items-center py-10 bg-[#FAFAFA]">
-            <div className="flex justify-center gap-2  w-4/5 sm:flex-col-reverse">
+            <div className="flex justify-center items-center gap-2 w-4/5 sm:flex-col-reverse">
               <img src={HomePageHero3} />
               <div className="text-black flex flex-col gap-3 text-left justify-center items-start sm:w-full sm:items-center sm:text-center sm:py-10">
                 <h5 className="text-base font-bold text-gray-400">
@@ -134,8 +134,8 @@ export default function Header() {
                   We know how large objects will act, but things on a small
                   scale.
                 </h4>
-                <div className="flex gap-2 flex-wrap sm:justify-center">
-                  <button className="bg-[#2DC071] text-sm w-[171px] hover:bg-green-400 text-white font-bold py-2 px-4 rounded sm:bg-[#23A6F0]">
+                <div className="flex w-full gap-2 flex-wrap sm:justify-center">
+                  <button className="bg-[#2DC071] text-sm w-[171px] hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
                     BUY NOW
                   </button>
                   <button className="bg-white border-[#2DC071] border-2 hover:bg-green-400 w-[171px] text-[#2DC071] text-sm font-bold py-2 px-4 rounded sm:border-[#23A6F0] sm:text-[#23A6F0]">

@@ -17,7 +17,7 @@ export default function ContactPage() {
       <div className="w-full flex flex-col items-center justify-center">
         <div className="w-3/4 justify-center flex flex-col py-10 sm:justify-center">
           <div className="text-[#252B42] flex justify-between items-center sm:flex-col">
-            <div className=" flex flex-col w-1/3 gap-5 sm:w-full">
+            <div className=" flex flex-col w-[400px] gap-5 sm:w-full">
               <div className="font-bold text-[#252B42] text-left flex flex-col gap-5 sm:text-center">
                 <h5 className="text-2xl">CONTACT US</h5>
                 <h1 className="text-[58px] sm:text-[40px]">
@@ -56,8 +56,8 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-        <div className="w-3/4 justify-center flex flex-col py-20 items-center gap-5 text-[#252B42] sm:bg-[#FAFAFA] sm:w-full">
-          <div className="flex flex-col font-bold w-1/2">
+        <div className="w-3/4 justify-center flex flex-col pt-40 items-center gap-5 text-[#252B42] sm:w-full">
+          <div className="flex flex-col font-bold w-1/2 sm:w-full">
             <p className="text-sm">VISIT OUR OFFICE</p>
             <p className="text-[40px]">
               We help small businesses with big ideas
