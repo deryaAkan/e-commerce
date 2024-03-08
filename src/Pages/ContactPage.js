@@ -5,11 +5,6 @@ import {
   faLinkedin,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import aboutSvg1 from "../assets/aboutpage/Ellipse-LP.svg";
-import aboutSvg2 from "../assets/aboutpage/Ellipse-MP.svg";
-import aboutSvg3 from "../assets/aboutpage/Ellipse SP.svg";
-import aboutSvg4 from "../assets/aboutpage/Ellipse 26ellipse-3.svg";
-import aboutSvg5 from "../assets/aboutpage/Ellipse 26ellipse-4.svg";
 import contactimg1 from "../assets/aboutpage/technology 1contacttt.png";
 import contactSvg1 from "../assets/contactpage/Vectorcontact-1.svg";
 import contactSvg2 from "../assets/contactpage/Vectorcontact.svg";
@@ -57,22 +52,7 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="relative sm:justify-center">
-              <img
-                className="absolute mb-[45rem] ml-[5rem] mt-0"
-                src={contactimg1}
-                alt="imggg"
-              />{" "}
-              <div className="flex flex-wrap">
-                <img
-                  className="mt-0 ml-0 mb-[26rem]"
-                  src={aboutSvg2}
-                  alt="imggg"
-                />{" "}
-                <img className="ml-0 mt-[26rem]" src={aboutSvg4} alt="imggg" />{" "}
-                <img className="mb-4" src={aboutSvg1} alt="imggg" />{" "}
-                <img className="mb-4 ml-4" src={aboutSvg3} alt="imggg" />{" "}
-                <img className="mb-[14rem]" src={aboutSvg5} alt="imggg" />{" "}
-              </div>
+              <img className="" src={contactimg1} alt="imggg" />{" "}
             </div>
           </div>
         </div>
