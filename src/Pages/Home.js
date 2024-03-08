@@ -9,6 +9,7 @@ import EditorsPick4 from "../assets/homepage/filtereditorspick3.png";
 import BestSellerCard from "../Components/BestSellerCard";
 import shophero2 from "../assets/homepage/shop-hero-2-png-picture-1.png";
 import FeaturedCard from "../Components/FeaturedPostsCard";
+import Slider2 from "../Components/Slider2";
 
 const slides2 = [
   {
@@ -118,9 +119,9 @@ export default function Header() {
           </div>
         </section>
         <div className="flex flex-col">
-          <Slider className="bg-[#23856D] items-end" slides={slides2} />
-          <section className="flex flex-wrap gap-5 flex-col bg-[#FAFAFA] items-center">
-            <div className="flex justify-center item-center sm:flex-wrap gap-2 w-4/5 sm:flex-col-reverse">
+          <Slider2 className="bg-[#23856D] items-end" slides={slides2} />
+          <section className="flex flex-wrap gap-5 flex-col items-center py-10 bg-[#FAFAFA]">
+            <div className="flex justify-center gap-2  w-4/5 sm:flex-col-reverse">
               <img src={HomePageHero3} />
               <div className="text-black flex flex-col gap-3 text-left justify-center items-start sm:w-full sm:items-center sm:text-center sm:py-10">
                 <h5 className="text-base font-bold text-gray-400">
