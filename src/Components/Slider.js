@@ -73,9 +73,9 @@ export default function Slider({
   }, []);
 
   return (
-    <div className="overflow-hidden relative font-Montserrat bg-[#01B6DD]  ">
+    <div className="overflow-hidden relative font-Montserrat bg-[#01B6DD]">
       <div
-        className="flex transition-transform ease-out duration-500 h-[640px]   "
+        className="flex transition-transform ease-out duration-500 h-[640px]"
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides.map((slide, index) => (
@@ -86,10 +86,10 @@ export default function Slider({
             <img
               src={slide.img}
               alt={`Slide ${index}`}
-              className="w-lvh object-cover sm:object-cover sm:w-fit  "
+              className="w-full overflow-hidden sm:object-cover sm:w-fit  "
             />
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-items-start sm:justify-center sm:items-center pl-16 sm:pl-0 ">
-              <div className="text-white sm:items-center  flex flex-col gap-8 sm:px-0 px-40">
+              <div className="text-white sm:items-center text-left sm:text-center flex flex-col gap-8 sm:px-0 px-40">
                 <h2 className="font-bold text-xl">{slide.dateHero}</h2>
                 <h1 className="font-bold sm:text-center text-[58px]">
                   {slide.title}
