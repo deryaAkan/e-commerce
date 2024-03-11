@@ -58,7 +58,7 @@ const LoginForm = () => {
     <div className="flex w-full bg-[#FAFAFA] flex-col items-center px-24 py-20 justify-center text-[#252B42] sm:justify-center sm:p-0">
       <div className="flex justify-center flex-wrap sm:gap-5 shadow-md py-10 px-20 bg-white rounded">
         <div className="flex basis-2/3 sm:flex-wrap sm:gap-5">
-          <div className="w-full flex flex-col items-center relative text-black text-left gap-10 sm:gap-2">
+          <div className="w-full flex flex-col items-center relative text-[#252B42] text-left gap-10 sm:gap-2">
             <h2 className="font-bold text-4xl">Welcome</h2>
             <FontAwesomeIcon
               icon={faRightToBracket}
