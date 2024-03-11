@@ -23,7 +23,7 @@ export default function Navbar() {
             {user.name ? (
               <>
                 <p className="text-[#252B42] text-sm font-bold">{user.name}</p>{" "}
-                <Link to="/logout" className="font-bold">
+                <Link to="/login" className="font-bold">
                   Logout
                 </Link>
               </>
