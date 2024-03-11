@@ -1,24 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import {
+  setUserEmail,
+  setUserName,
+  setUserRoleId,
+} from "../store/actions/userActions";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const instance = axios.create({
   baseURL: "https://workintech-fe-ecommerce.onrender.com",
 });
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    instance
+      .post("/login", data)
+      .then((response) => {
+        console.log("gelen data", response.data);
+        const user = response.data;
+        if (user) {
+          const { name, email, role_id } = user;
+          const token = response.data.token;
+
+          dispatch(setUserName(name));
+          dispatch(setUserEmail(email));
+          dispatch(setUserRoleId(role_id));
+
+          localStorage.setItem("token", token);
+          history.push("/");
+        } else {
+          console.error("Login error: User data is undefined");
+          toast.error("Login failed. Please check your credentials.");
+        }
+      })
+      .catch((error) => {
+        console.error("Login error:", error);
+        toast.error("An error occurred during login. Please try again later.");
+      });
   };
 
   return (
