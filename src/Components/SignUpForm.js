@@ -60,72 +60,74 @@ export default function SignUpForm() {
           <div className="flex basis-2/3 sm:flex-wrap sm:gap-5">
             <div className="w-full flex flex-col items-center relative text-black text-left gap-10 sm:gap-2">
               <h2 className="font-bold text-2xl">Create Account</h2>
-              <form
-                className="flex flex-col gap-10 text-sm text-[#737373] sm:gap-2"
-                onSubmit={handleSubmit(onSubmit)}
-              >
-                <input
-                  className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
-                  type="text"
-                  placeholder="Full Name"
-                  {...register("name", { required: true, minLength: 3 })}
-                />
-                {errors.name && errors.name.type === "required" && (
-                  <span className="text-red-700">This field is required</span>
-                )}
-                {errors.name && errors.name.type === "minLength" && (
-                  <span className="text-red-700">
-                    Minimum length is 3 characters
-                  </span>
-                )}
-                <input
-                  className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
-                  type="email"
-                  placeholder="Email Address"
-                  {...register("email", {
-                    required: true,
-                    pattern: /^\S+@\S+$/i,
-                  })}
-                />
-                {errors.email && errors.email.type === "required" && (
-                  <span className="text-red-700">This field is required</span>
-                )}
-                {errors.email && errors.email.type === "pattern" && (
-                  <span className="text-red-700">Invalid email address</span>
-                )}
-                <input
-                  className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
-                  type="password"
-                  placeholder="Password"
-                  {...register("password", {
-                    required: true,
-                    minLength: 8,
-                    pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/,
-                  })}
-                />
-                {errors.password && errors.password.type === "required" && (
-                  <span className="text-red-700">This field is required</span>
-                )}
-                {errors.password && errors.password.type === "minLength" && (
-                  <span className="text-red-700">
-                    Password must be at least 8 characters long
-                  </span>
-                )}
-                {errors.password && errors.password.type === "pattern" && (
-                  <span className="text-red-700">
-                    Password must include at least one number, one lowercase
-                    letter, one uppercase letter, and one special character
-                  </span>
-                )}
-                <input
-                  className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
-                  type="password"
-                  placeholder="Confirm Password"
-                />
-                {errors.confirmPassword && (
-                  <span className="text-red-700">Passwords do not match</span>
-                )}
-                {roles.length > 0 && (
+              {roles.length > 0 && (
+                <form
+                  className="flex flex-col gap-10 text-sm text-[#737373] sm:gap-2"
+                  onSubmit={handleSubmit(onSubmit)}
+                >
+                  <input
+                    className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
+                    type="text"
+                    placeholder="Full Name"
+                    {...register("name", { required: true, minLength: 3 })}
+                  />
+                  {errors.name && errors.name.type === "required" && (
+                    <span className="text-red-700">This field is required</span>
+                  )}
+                  {errors.name && errors.name.type === "minLength" && (
+                    <span className="text-red-700">
+                      Minimum length is 3 characters
+                    </span>
+                  )}
+                  <input
+                    className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
+                    type="email"
+                    placeholder="Email Address"
+                    {...register("email", {
+                      required: true,
+                      pattern: /^\S+@\S+$/i,
+                    })}
+                  />
+                  {errors.email && errors.email.type === "required" && (
+                    <span className="text-red-700">This field is required</span>
+                  )}
+                  {errors.email && errors.email.type === "pattern" && (
+                    <span className="text-red-700">Invalid email address</span>
+                  )}
+                  <input
+                    className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
+                    type="password"
+                    placeholder="Password"
+                    {...register("password", {
+                      required: true,
+                      minLength: 8,
+                      pattern:
+                        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/,
+                    })}
+                  />
+                  {errors.password && errors.password.type === "required" && (
+                    <span className="text-red-700">This field is required</span>
+                  )}
+                  {errors.password && errors.password.type === "minLength" && (
+                    <span className="text-red-700">
+                      Password must be at least 8 characters long
+                    </span>
+                  )}
+                  {errors.password && errors.password.type === "pattern" && (
+                    <span className="text-red-700">
+                      Password must include at least one number, one lowercase
+                      letter, one uppercase letter, and one special character
+                    </span>
+                  )}
+                  <input
+                    className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
+                    type="password"
+                    placeholder="Confirm Password"
+                  />
+                  {errors.confirmPassword && (
+                    <span className="text-red-700">Passwords do not match</span>
+                  )}
+
                   <select
                     className="text-sm w-full text-[#737373] shadow-md py-2 px-4"
                     defaultValue={roles[2].id}
@@ -142,78 +144,79 @@ export default function SignUpForm() {
                       </option>
                     ))}
                   </select>
-                )}
 
-                {shouldRenderStoreInputs ? (
-                  <>
-                    <input
-                      className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
-                      type="text"
-                      placeholder="Store Name"
-                      {...register("store.name", {
-                        required: "You must enter store name",
-                        minLength: {
-                          value: 3,
-                          message:
-                            "Store Name must be at least 3 characters long",
-                        },
-                      })}
-                    />
-                    {errors.store?.name && (
-                      <p className="text-red-700">
-                        Store Name must be at least 3 characters long
-                      </p>
-                    )}
-                    <input
-                      className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
-                      type="tel"
-                      placeholder="Store Phone"
-                      {...register("store.phone", {
-                        required: true,
-                        minLength: 3,
-                        pattern: {
-                          value: /^(?:\+?90|0)?[0-9]{10}$/,
-                          message: "Please enter a valid Turkish phone number",
-                        },
-                      })}
-                    />
-                    <input
-                      className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
-                      type="text"
-                      placeholder="Store Tax ID"
-                      {...register("store.tax_no", {
-                        required: true,
-                        pattern: {
-                          value: /^T\d{4}V\d{6}$/,
-                          message:
-                            "Please enter a valid Store Tax ID matching the pattern TXXXXVXXXXXX",
-                        },
-                      })}
-                    />
-                    <input
-                      className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
-                      type="text"
-                      placeholder="Store Bank Account"
-                      {...register("store.bank_account", {
-                        required: true,
-                        pattern: {
-                          value: /^TR\d{2}\d{5}\d{1}[0-9A-Z]{16}$/,
-                          message: "Please enter a valid Turkish IBAN",
-                        },
-                      })}
-                    />
-                  </>
-                ) : (
-                  false
-                )}
+                  {shouldRenderStoreInputs ? (
+                    <>
+                      <input
+                        className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
+                        type="text"
+                        placeholder="Store Name"
+                        {...register("store.name", {
+                          required: "You must enter store name",
+                          minLength: {
+                            value: 3,
+                            message:
+                              "Store Name must be at least 3 characters long",
+                          },
+                        })}
+                      />
+                      {errors.store?.name && (
+                        <p className="text-red-700">
+                          Store Name must be at least 3 characters long
+                        </p>
+                      )}
+                      <input
+                        className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
+                        type="tel"
+                        placeholder="Store Phone"
+                        {...register("store.phone", {
+                          required: true,
+                          minLength: 3,
+                          pattern: {
+                            value: /^(?:\+?90|0)?[0-9]{10}$/,
+                            message:
+                              "Please enter a valid Turkish phone number",
+                          },
+                        })}
+                      />
+                      <input
+                        className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
+                        type="text"
+                        placeholder="Store Tax ID"
+                        {...register("store.tax_no", {
+                          required: true,
+                          pattern: {
+                            value: /^T\d{4}V\d{6}$/,
+                            message:
+                              "Please enter a valid Store Tax ID matching the pattern TXXXXVXXXXXX",
+                          },
+                        })}
+                      />
+                      <input
+                        className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
+                        type="text"
+                        placeholder="Store Bank Account"
+                        {...register("store.bank_account", {
+                          required: true,
+                          pattern: {
+                            value: /^TR\d{2}\d{5}\d{1}[0-9A-Z]{16}$/,
+                            message: "Please enter a valid Turkish IBAN",
+                          },
+                        })}
+                      />
+                    </>
+                  ) : (
+                    false
+                  )}
 
-                <button
-                  className="bg-[#252B42] font-bold text-white text-sm py-2 px-8 rounded hover:bg-[#23A6F0]"
-                  disabled={loading}
-                >
-                  {loading ? "Submitting..." : "Sign Up"}
-                </button>
-              </form>
+                  <button
+                    className="bg-[#252B42] font-bold text-white text-sm py-2 px-8 rounded hover:bg-[#23A6F0]"
+                    disabled={loading}
+                  >
+                    {loading ? "Submitting..." : "Sign Up"}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
