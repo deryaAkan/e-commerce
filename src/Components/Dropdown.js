@@ -129,14 +129,11 @@ export default function Dropdown() {
             </div>
           </div>
         )}
-        <Link className="sm:hidden" to="/about">
-          About
-        </Link>
+        <Link to="/about" className="sm:hidden">About</Link>
         <Link to="/blog">Pricing</Link>
         <Link to="/contact">Contact</Link>
-        <Link className="sm:hidden" to="/team">
-          Team
-        </Link>
+        <Link to="/blog">Blog</Link>
+        <Link to="/team" className="sm:hidden">Team</Link>
       </div>
     </>
   );

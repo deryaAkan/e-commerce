@@ -4,17 +4,17 @@ export const userActions = {
   setUserId: "SET_USER_ID",
 };
 
-export const updateUserName = (name) => ({
+export const setUserName = (name) => ({
   type: "SET_USER_NAME",
   payload: name,
 });
 
-export const updateUserEmail = (email) => ({
+export const setUserEmail = (email) => ({
   type: "SET_USER_EMAIL",
   payload: email,
 });
 
-export const setUserId = (role_id) => ({
+export const setUserRoleId = (role_id) => ({
   type: "SET_USER_ID",
   payload: role_id,
 });

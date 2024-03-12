@@ -12,7 +12,7 @@ const initialState = {
   address: {},
 };
 
-const shoppingCartReducer = (state = initialState, action) => {
+export const shoppingCartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_ADD_CART":
       const isAddedCart = state.cart.find(
