@@ -11,8 +11,8 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="flex w-full justify-center flex-wrap sm:flex-col sm:gap-5">
-        <div className="flex w-3/4 justify-center">
+      <div className="flex w-full justify-center flex-wrap sm:flex-col sm:gap-5 sm:items-center">
+        <div className="flex w-3/4 justify-center  sm:flex-col sm:text-left">
           <div className="text-[#252B42] flex items-center flex-grow gap-24 sm:flex-col sm:gap-3">
             <h3 className="font-2xl font-bold">Bandage</h3>
             <nav className="flex text-sm font-bold text-gray-400">
@@ -29,7 +29,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <img alt="login stuff" src={loginSvg} />
+                <img alt="login stuff" src={loginSvg} className="sm:hidden" />
                 <Link to="/login" className="font-bold">
                   Login /
                 </Link>

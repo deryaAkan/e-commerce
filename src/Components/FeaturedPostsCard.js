@@ -50,9 +50,11 @@ function FeaturedCard() {
             className="max-w-xs bg-[#FAFAFA] shadow-md overflow-hidden"
           >
             <img className="w-full h-auto" src={item.img} alt="Product" />
-            <p className="text-sm flex gap-2 text-black font-base">
-              {item.links}
-            </p>
+            <div className="flex justify-start gap-2 w-full text-sm text-blue-400 font-base p-4">
+              <p>{item.links[0]}</p>
+              <p>{item.links[1]}</p>
+              <p>{item.links[2]}</p>
+            </div>
             <div className="p-4">
               <p className="text-xl text-left text-gray-700 font-semibold mb-2">
                 {item.title}
