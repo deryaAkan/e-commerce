@@ -1,3 +1,10 @@
+export const fetchStates = {
+  NOT_FETCHED: "NOT_FETCHED",
+  FETCHING: "FETCHING",
+  FETCHED: "FETCHED",
+  FAILED: "FAILED",
+};
+
 const initialState = {
   product: {
     productList: {},
@@ -6,12 +13,6 @@ const initialState = {
     activePage: 1,
     fetchState: fetchStates.NOT_FETCHED,
   },
-};
-export const fetchStates = {
-  NOT_FETCHED: "NOT_FETCHED",
-  FETCHING: "FETCHING",
-  FETCHED: "FETCHED",
-  FAILED: "FAILED",
 };
 
 export const productReducer = (state = initialState, action) => {
