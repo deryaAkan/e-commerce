@@ -9,7 +9,6 @@ import EditorsPick4 from "../assets/homepage/filtereditorspick3.png";
 import BestSellerCard from "../Components/BestSellerCard";
 import shophero2 from "../assets/homepage/shop-hero-2-png-picture-1.png";
 import FeaturedCard from "../Components/FeaturedPostsCard";
-import Slider2 from "../Components/Slider2";
 
 const slides2 = [
   {
