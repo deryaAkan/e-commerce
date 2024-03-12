@@ -44,32 +44,25 @@ const AboutPage = () => {
                 We know how large objects will act, but things on a small scale.
               </h4>
             </div>
-            <div className="w-full flex justify-start">
+            <div className="w-full flex justify-start sm:justify-center">
               <button className="bg-[#23A6F0] text-white font-bold text-sm py-4 px-14 rounded hover:bg-blue-300">
                 Get Quote Now
               </button>
             </div>
           </div>
           <div className="relative pb-20">
-            {/*<div className="flex flex-wrap">
-              <img className="mr-4" src={aboutSvg2} alt="imggg" />
-              <img className="mr-4" src={aboutSvg4} alt="imggg" />
-              <img className="mr-4 mb-4" src={aboutSvg1} alt="imggg" />
-              <img className="mr-4 mb-4" src={aboutSvg3} alt="imggg" />
-              <img className="mb-[14rem]" src={aboutSvg5} alt="imggg" />
-  </div> */}
             <img className="" src={aboutimg1} alt="imggg" />
           </div>
         </div>
       </div>
-      <div className="flex w-3/4 items-center text-left justify-between px-20 sm:flex-col sm:gap-5">
-        <div className="flex flex-col w-1/3 gap-5">
+      <div className="flex w-3/4 items-center text-left justify-between px-20 sm:flex-col sm:gap-5 sm:w-full">
+        <div className="flex flex-col w-1/3 gap-5 sm:w-full">
           <p className="text-[#E74040] text-sm font-normal]">problem trying</p>
           <h2 className="text-[#252B42] text-2xl font-bold">
             Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
           </h2>
         </div>
-        <div className="w-1/2">
+        <div className="w-1/2 sm:w-full">
           <p className="text-sm font-normal text-[#737373]">
             Problems trying to resolve the conflict between the two major realms
             of Classical physics: Newtonian mechanics
