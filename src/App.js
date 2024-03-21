@@ -26,12 +26,15 @@ function App() {
   const history = useHistory();
   const dispatch = useDispatch();
   const userReducerData = useSelector((store) => store.userRed);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     const userName = localStorage.getItem("userName");
+
     if (userName) {
       toast.success(`${userName} Welcome!`);
     }
+
     if (token) {
       instance
         .get("/verify", {
@@ -45,7 +48,8 @@ function App() {
           localStorage.setItem("userName", res.data.name);
         })
         .catch((err) => {
-          console.error("login hata", err);
+          console.error("Login error:", err);
+          toast.error("An error occurred during auto login.");
           localStorage.removeItem("token");
         });
     }
