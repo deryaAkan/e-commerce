@@ -77,7 +77,7 @@ export default function Slider({
             <img
               src={slide.img}
               alt={`Slide ${index}`}
-              className="w-full object-cover sm:object-cover sm:w-fit  "
+              className="w-full object-cover sm:object-cover"
             />
           </div>
         ))}

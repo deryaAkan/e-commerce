@@ -181,12 +181,17 @@ export default function ProductPage() {
             </div>
           </div>
         </div>
-        <div className="flex w-3/4 justify-center flex-wrap py-10 gap-10">
-          {products.map((product) => (
-            <Link to="/productpage" key={product.id}>
-              <ProductCard product={product} />
-            </Link>
-          ))}
+        <div className="flex flex-col w-3/4 justify-center flex-wrap py-10 gap-10 sm:w-full">
+          <div className="flex w-full justify-start items-start font-bold text-lg text-black">
+            <p>BESTSELLER PRODUCTS</p>
+          </div>
+          <div className="flex w-full justify-center flex-wrap py-5 gap-10 sm:w-full">
+            {products.map((product) => (
+              <Link to="/productpage" key={product.id}>
+                <ProductCard product={product} />
+              </Link>
+            ))}
+          </div>
         </div>
         <Companies />
       </div>
