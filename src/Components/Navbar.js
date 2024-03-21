@@ -1,13 +1,24 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Dropdown from "../Components/Dropdown";
 import loginSvg from "../assets/header/loginvector.svg";
 import shopCardSvg from "../assets/header/shopCardSvg.svg";
 import searchSvg from "../assets/header/searchBar.svg";
 import favsSvg from "../assets/header/favs.svg";
 import { Link } from "react-router-dom";
+import { setUserName } from "../store/actions/userActions";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Navbar() {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  function handleLogout() {
+    localStorage.removeItem("userName");
+    localStorage.removeItem("token");
+    dispatch(setUserName(""));
+    history.push("/login");
+  }
 
   return (
     <>
@@ -23,9 +34,9 @@ export default function Navbar() {
             {user.name ? (
               <>
                 <p className="text-[#252B42] text-sm font-bold">{user.name}</p>{" "}
-                <Link to="/login" className="font-bold">
+                <button onClick={handleLogout} className="font-bold">
                   Logout
-                </Link>
+                </button>
               </>
             ) : (
               <>

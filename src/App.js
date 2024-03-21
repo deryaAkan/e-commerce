@@ -19,13 +19,12 @@ import SignUpForm from "./Components/SignUpForm";
 import LoginForm from "./Components/LoginForm";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { setUserName } from "./store/actions/userActions";
 
 function App() {
   const baseURL = "https://workintech-fe-ecommerce.onrender.com";
   const instance = axios.create({ baseURL });
-  const history = useHistory();
   const dispatch = useDispatch();
-  const userReducerData = useSelector((store) => store.userRed);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -46,6 +45,8 @@ function App() {
           console.log("Auto login", res.data);
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("userName", res.data.name);
+          toast.success(`Welcome ${res.data.name}`);
+          dispatch(setUserName(res.data.name));
         })
         .catch((err) => {
           console.error("Login error:", err);
