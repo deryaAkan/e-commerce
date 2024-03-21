@@ -7,6 +7,7 @@ import yeto from "../assets/productpage/card-item111.png";
 import yeto1 from "../assets/productpage/product-cover-5productpagebest.png";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import ProductCard from "../Components/ProductCard";
+import Companies from "../Layouts/Companies";
 
 export default function ProductPage() {
   const products = [
@@ -187,6 +188,7 @@ export default function ProductPage() {
             </Link>
           ))}
         </div>
+        <Companies />
       </div>
     </>
   );
