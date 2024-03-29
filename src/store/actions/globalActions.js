@@ -48,3 +48,14 @@ export const getRoles = () => (dispatch, getState) => {
       console.log("hata", err);
     });
 };
+
+export const getCategories = () => (dispatch, getState) => {
+  instance
+    .get("/categories")
+    .then((res) => {
+      dispatch(setCategories(res.data));
+    })
+    .catch((err) => {
+      console.log("categories hata", err);
+    });
+};
