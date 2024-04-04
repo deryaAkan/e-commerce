@@ -61,7 +61,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/products" component={Shop} />
+        <Route path="/shop" component={Shop} />
         <Route path="/team" component={TeamPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/contact" component={ContactPage} />

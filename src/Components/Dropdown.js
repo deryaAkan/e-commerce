@@ -17,7 +17,7 @@ export default function Dropdown() {
       <div className="relative flex gap-3 sm:flex-col" onBlur={closeMenu}>
         <Link to="/">Home</Link>
         <div className="relative flex text-left">
-          <Link to="/products">
+          <Link to="/shop">
             <button
               onClick={toggleMenu}
               className="inline-flex w-full justify-center gap-x-1.5 text-sm text-gray-900"
@@ -43,89 +43,179 @@ export default function Dropdown() {
         </div>
         {menuOpen && (
           <div
-            className="absolute left-0 z-10 mt-7 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            className="flex items-center justify-center absolute left-0 z-10 mt-7 w-56 origin-top-right divide-y divide-gray-100 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="menu-button"
             tabIndex="-1"
           >
-            <div className="py-1" role="none">
-              <Link
-                onClick={closeMenu}
-                to="#"
-                className="text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabIndex="-1"
-                id="menu-item-0"
-              >
-                Edit
-              </Link>
-              <Link
-                onClick={closeMenu}
-                to="#"
-                className="text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabIndex="-1"
-                id="menu-item-1"
-              >
-                Duplicate
-              </Link>
-            </div>
-            <div className="py-1" role="none">
-              <Link
-                onClick={closeMenu}
-                to="#"
-                className="text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabIndex="-1"
-                id="menu-item-2"
-              >
-                Archive
-              </Link>
-              <Link
-                onClick={closeMenu}
-                to="#"
-                className="text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabIndex="-1"
-                id="menu-item-3"
-              >
-                Move
-              </Link>
-            </div>
-            <div className="py-1" role="none">
-              <Link
-                onClick={closeMenu}
-                to="#"
-                className="text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabIndex="-1"
-                id="menu-item-4"
-              >
-                Share
-              </Link>
-              <Link
-                onClick={closeMenu}
-                to="#"
-                className="text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabIndex="-1"
-                id="menu-item-5"
-              >
-                Add to favorites
-              </Link>
-            </div>
-            <div className="py-1" role="none">
-              <Link
-                onClick={closeMenu}
-                to="#"
-                className="text-gray-700 block px-4 py-2 text-sm"
-                role="menuitem"
-                tabIndex="-1"
-                id="menu-item-6"
-              >
-                Delete
-              </Link>
+            <div className="flex">
+              <div className="WOMEN flex flex-col px-2">
+                <Link
+                  onClick={closeMenu}
+                  to="/shop/kadin"
+                  className="text-gray-700 block px-4 py-2 text-sm"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-0"
+                >
+                  WOMEN
+                </Link>
+                <hr className="border-gray-200"></hr>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-0"
+                >
+                  Tişört
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-0"
+                >
+                  Ayakkabı
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-1"
+                >
+                  Ceket
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-1"
+                >
+                  Elbise
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-0"
+                >
+                  Etek
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-1"
+                >
+                  Gömlek
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-1"
+                >
+                  Kazak
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-1"
+                >
+                  Pantolon
+                </Link>
+              </div>
+              <div className="MEN flex flex-col">
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-700 block px-4 py-2 text-sm"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-0"
+                >
+                  MEN
+                </Link>
+                <hr className="border-gray-200"></hr>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-0"
+                >
+                  Ayakkabı
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-0"
+                >
+                  Ceket
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-1"
+                >
+                  Gömlek
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-1"
+                >
+                  Kazak
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-0"
+                >
+                  Pantolon
+                </Link>
+                <Link
+                  onClick={closeMenu}
+                  to="#"
+                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                  role="menuitem"
+                  tabIndex="-1"
+                  id="menu-item-1"
+                >
+                  Tişört
+                </Link>
+              </div>
             </div>
           </div>
         )}
