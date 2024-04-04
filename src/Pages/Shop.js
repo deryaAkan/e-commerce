@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../Components/ProductCard";
-import Categories from "../Components/Categories";
 import Companies from "../Layouts/Companies";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import imageee from "../assets/homepage/product-cover-5productPage1.png";

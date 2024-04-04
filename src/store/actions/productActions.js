@@ -6,27 +6,27 @@ export const productActions = {
   setFetchState: "SET_FETCH_STATE",
 };
 
-export const productListSetter = (products) => ({
+export const setProductList = (products) => ({
   type: productActions.setProductList,
   payload: products,
 });
 
-export const fetchStateSetter = (fetchState) => ({
+export const setFetchState = (fetchState) => ({
   type: productActions.setFetchState,
   payload: fetchState,
 });
 
-export const productCountSetter = (productCount) => ({
+export const setProductCount = (productCount) => ({
   type: productActions.setProductCount,
   payload: productCount,
 });
 
-export const pageCountSetter = (pageCount) => ({
+export const setPageCount = (pageCount) => ({
   type: productActions.setPageCount,
   payload: pageCount,
 });
 
-export const activePageSetter = (activePage) => ({
+export const setActivePage = (activePage) => ({
   type: productActions.setActivePage,
   payload: activePage,
 });
