@@ -1,3 +1,27 @@
+import axios from "axios";
+import { fetchStates } from "../reducers/productReducer";
+const instance = axios.create({
+  baseURL: "https://workintech-fe-ecommerce.onrender.com",
+});
+
+export const getProducts = () => async (dispatch, getState) => {
+  dispatch(fetchStateSetter(fetchStates.FETCHING));
+
+  instance
+    .get("/products")
+    .then((res) => {
+      dispatch(pageCountSetter(res.data));
+      dispatch(productListSetter(res.data.products));
+    })
+    .catch((err) => {
+      dispatch({
+        type: "product/fetchProductList/rejected",
+        payload: err.message,
+      });
+      console.error("Error fetching product list:", err);
+    });
+};
+
 export const productActions = {
   setProductList: "SET_PRODUCT_LIST",
   setProductCount: "SET_PRODUCT_COUNT",
@@ -6,22 +30,22 @@ export const productActions = {
   setFetchState: "SET_FETCH_STATE",
 };
 
-export const setProductList = (products) => ({
+export const productListSetter = (products) => ({
   type: productActions.setProductList,
   payload: products,
 });
 
-export const setFetchState = (fetchState) => ({
+export const fetchStateSetter = (fetchState) => ({
   type: productActions.setFetchState,
   payload: fetchState,
 });
 
-export const setProductCount = (productCount) => ({
+export const productCountSetter = (productCount) => ({
   type: productActions.setProductCount,
   payload: productCount,
 });
 
-export const setPageCount = (pageCount) => ({
+export const pageCountSetter = (pageCount) => ({
   type: productActions.setPageCount,
   payload: pageCount,
 });

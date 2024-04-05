@@ -4,6 +4,7 @@ import {
   applyMiddleware,
 } from "redux";
 import { thunk } from "redux-thunk";
+import logger from "redux-logger";
 import { userReducer } from "./reducers/userReducer";
 import { globalReducer } from "./reducers/globalReducer";
 import { storeReducer } from "./reducers/storeReducer";
@@ -18,6 +19,6 @@ const rootReducer = combineReducers({
   shoppingCard: shoppingCartReducer,
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 export default store;
