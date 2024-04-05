@@ -44,14 +44,15 @@ const Shop = () => {
     }
   };
 
-  const totalPages = Math.ceil(products.length / productsPerPage);
+  // const totalPages = Math.ceil(products.length / productsPerPage);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(
+  const currentProducts = products?.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
+  const totalPages = Math.ceil(products?.length / productsPerPage);
 
   const sortByRating = categoriesData.sort((a, b) => b.rating - a.rating);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -130,7 +131,7 @@ const Shop = () => {
       <div className="flex w-3/4 justify-between flex-wrap items-center py-6">
         <div className="text-[#252B42] w-full flex items-center justify-between flex-grow sm:flex-col sm:gap-5">
           <h3 className="text-sm text-gray-600 font-bold">
-            Showing all {products.length} results
+            Showing all {products?.length} results
           </h3>
           <div className="flex items-center gap-2">
             <select
@@ -138,7 +139,7 @@ const Shop = () => {
               onChange={(e) => setSelectedFilter(e.target.value)}
               className="border-gray-400 border px-2 py-2 rounded-md text-sm text-gray-400 bg-[#FAFAFA]"
             >
-              {filterOptions.map((option) => (
+              {filterOptions?.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
@@ -151,7 +152,7 @@ const Shop = () => {
         </div>
       </div>
       <div className="flex w-3/4 justify-center flex-wrap py-10 gap-10">
-        {products.map((product) => (
+        {products?.map((product) => (
           <Link to="/productpage" key={product.id}>
             <div className="flex flex-col max-w-xs bg-white overflow-hidden font-bold gap-5">
               <img src={product.images[0].url} alt="Ürün Resmi" />
