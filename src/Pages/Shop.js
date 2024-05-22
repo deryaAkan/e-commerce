@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "../Components/ProductCard";
 import Companies from "../Layouts/Companies";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import imageee from "../assets/homepage/product-cover-5productPage1.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../store/actions/globalActions";
 import { getProducts } from "../store/actions/productActions";
@@ -12,7 +10,6 @@ const Shop = () => {
   const dispatch = useDispatch();
   const categoriesData = useSelector((store) => store.global.categories);
   const productData = useSelector((store) => store.product.productList);
-  console.log("PRODUCT DATAAA", productData);
 
   useEffect(() => {
     setLoading(true);
@@ -20,11 +17,10 @@ const Shop = () => {
       dispatch(getCategories());
       dispatch(getProducts());
       setLoading(false);
-    }, 1000);
+    }, 300);
     return () => clearTimeout(timeout);
   }, []);
 
-  // const [products, setProducts] = useState();
   const products = useSelector((store) => store.product.productList);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
@@ -101,7 +97,7 @@ const Shop = () => {
         className="flex flex-row justify-center gap-4 sm:flex-col sm:items-center"
         id="box-cards"
       >
-        {sortByRating.slice(0, 5).map((box, index) => (
+        {sortByRating.slice(0, 4).map((box, index) => (
           <Link
             key={index}
             to={`/shop/${

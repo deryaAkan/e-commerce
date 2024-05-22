@@ -19,7 +19,6 @@ export default function Dropdown() {
         <div className="relative flex text-left">
           <Link to="/shop">
             <button
-              onClick={toggleMenu}
               className="inline-flex w-full justify-center gap-x-1.5 text-sm text-gray-900"
               id="menu-button"
               aria-expanded={menuOpen}
@@ -27,6 +26,7 @@ export default function Dropdown() {
             >
               Shop
               <svg
+                onClick={toggleMenu}
                 className="h-5 w-5 text-gray-900"
                 viewBox="0 0 20 20"
                 fill="currentColor"
