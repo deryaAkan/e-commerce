@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getCategories } from "../store/actions/globalActions";
 
 export default function Dropdown() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const categoriesData = useSelector((store) => store.global.categories);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      dispatch(getCategories());
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -62,86 +73,23 @@ export default function Dropdown() {
                   WOMEN
                 </Link>
                 <hr className="border-gray-200"></hr>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-0"
-                >
-                  Tişört
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-0"
-                >
-                  Ayakkabı
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-1"
-                >
-                  Ceket
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-1"
-                >
-                  Elbise
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-0"
-                >
-                  Etek
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-1"
-                >
-                  Gömlek
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-1"
-                >
-                  Kazak
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-1"
-                >
-                  Pantolon
-                </Link>
+                {categoriesData?.map(
+                  (box, index) =>
+                    box.gender === "k" && (
+                      <Link
+                        onClick={closeMenu}
+                        key={index}
+                        to={`/shop/kadin/${box.title.toLowerCase()}`}
+                        className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                        role="menuitem"
+                        tabIndex="-1"
+                        id="menu-item-0"
+                      >
+                        {" "}
+                        {box.title}
+                      </Link>
+                    )
+                )}
               </div>
               <div className="MEN flex flex-col">
                 <Link
@@ -155,66 +103,23 @@ export default function Dropdown() {
                   MEN
                 </Link>
                 <hr className="border-gray-200"></hr>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-0"
-                >
-                  Ayakkabı
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-0"
-                >
-                  Ceket
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-1"
-                >
-                  Gömlek
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-1"
-                >
-                  Kazak
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-0"
-                >
-                  Pantolon
-                </Link>
-                <Link
-                  onClick={closeMenu}
-                  to="#"
-                  className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
-                  role="menuitem"
-                  tabIndex="-1"
-                  id="menu-item-1"
-                >
-                  Tişört
-                </Link>
+                {categoriesData?.map(
+                  (box, index) =>
+                    box.gender === "e" && (
+                      <Link
+                        onClick={closeMenu}
+                        key={index}
+                        to={`/shop/erkek/${box.title.toLowerCase()}`}
+                        className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
+                        role="menuitem"
+                        tabIndex="-1"
+                        id="menu-item-0"
+                      >
+                        {" "}
+                        {box.title}
+                      </Link>
+                    )
+                )}
               </div>
             </div>
           </div>

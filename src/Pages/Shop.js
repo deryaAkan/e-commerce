@@ -9,7 +9,8 @@ const Shop = () => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const categoriesData = useSelector((store) => store.global.categories);
-  const productData = useSelector((store) => store.product.productList);
+  const sortByRating = categoriesData.sort((a, b) => b.rating - a.rating);
+  const products = useSelector((store) => store.product.productList);
 
   useEffect(() => {
     setLoading(true);
@@ -21,7 +22,6 @@ const Shop = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const products = useSelector((store) => store.product.productList);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
   const [selectedFilter, setSelectedFilter] = useState("all");
@@ -36,7 +36,7 @@ const Shop = () => {
     if (selectedFilter === "all") {
       return products;
     } else {
-      return products.filter((product) => product.category === selectedFilter); // Filter products based on selected category
+      return products.filter((product) => product.category === selectedFilter);
     }
   };
 
@@ -50,15 +50,14 @@ const Shop = () => {
   );
   const totalPages = Math.ceil(products?.length / productsPerPage);
 
-  const sortByRating = categoriesData.sort((a, b) => b.rating - a.rating);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   if (loading) {
     return (
-      <div className="relative">
-        <div className="absolute bg-white bg-opacity-60 z-10 h-full w-full top-24 flex items-center justify-center">
+      <div className="relative py-40 flex items-center justify-center">
+        <div className="absolute bg-white bg-opacity-60 z-10 h-full w-full flex items-center justify-center">
           <div className="flex items-center">
-            <span className="text-3xl mr-4 ">Loading</span>
+            <span className="text-3xl">Loading</span>
             <svg
               className="animate-spin h-8 w-8 text-gray-800"
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +93,7 @@ const Shop = () => {
         <p className="text-sm text-gray-300 font-bold ">Home -- Shop</p>
       </div>
       <span
-        className="flex flex-row justify-center gap-4 sm:flex-col sm:items-center"
+        className="flex flex-row flex-wrap justify-center gap-4 sm:flex-col sm:items-center"
         id="box-cards"
       >
         {sortByRating.slice(0, 4).map((box, index) => (
@@ -149,13 +148,13 @@ const Shop = () => {
       </div>
       <div className="flex w-3/4 justify-center flex-wrap py-10 gap-10">
         {products?.map((product) => (
-          <Link to="/productpage" key={product.id}>
+          <Link to="/products" key={product.id}>
             <div className="flex flex-col max-w-xs bg-white overflow-hidden font-bold gap-5">
               <img src={product.images[0].url} alt="Ürün Resmi" />
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 text-sm">
                 <h3 className="text-base text-[#252B42]">{product.name}</h3>
-                <p className="text-sm text-[#737373]">{product.category}</p>
-                <div className="flex justify-center text-sm font-bold text-[#BDBDBD] gap-1">
+                <p className="text-[#737373]">{product.category}</p>
+                <div className="flex justify-center font-bold text-[#BDBDBD] gap-1">
                   <span>{product.price}</span>
                   <span>{product.rating}</span>
                   <span>{product.sell_count}</span>
@@ -164,11 +163,11 @@ const Shop = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-1 py-3">
-              <div className="w-3 h-3 rounded-full bg-[#23A6F0]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#23856D]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#E77C40]"></div>
-              <div className="w-3 h-3 rounded-full bg-black"></div>
+            <div className="flex items-center justify-center gap-1 py-3 w-3 h-3 rounded-full">
+              <div className="bg-[#23A6F0]"></div>
+              <div className="bg-[#23856D]"></div>
+              <div className="bg-[#E77C40]"></div>
+              <div className="bg-black"></div>
             </div>
           </Link>
         ))}

@@ -65,7 +65,7 @@ function App() {
         <Route path="/team" component={TeamPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/contact" component={ContactPage} />
-        <Route path="/productpage" component={ProductPage} />
+        <Route path="/products" component={ProductPage} />
         <Route path="/signup" component={SignUpForm} />
         <Route path="/login" component={LoginForm} />
       </Switch>
