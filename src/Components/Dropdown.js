@@ -34,27 +34,29 @@ export default function Dropdown() {
     <div className="relative flex gap-3 sm:flex-col" ref={dropdownRef}>
       <Link to="/">Home</Link>
       <div className="relative flex text-left">
-        <button
-          className="inline-flex w-full justify-center gap-x-1.5 text-sm text-gray-900"
-          id="menu-button"
-          aria-expanded={menuOpen}
-          aria-haspopup="true"
-          onClick={toggleMenu}
-        >
-          Shop
-          <svg
-            className="h-5 w-5 text-gray-900"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
+        <Link to="/shop">
+          <button
+            className="inline-flex w-full justify-center gap-x-1.5 text-sm text-gray-900"
+            id="menu-button"
+            aria-expanded={menuOpen}
+            aria-haspopup="true"
           >
-            <path
-              fillRule="evenodd"
-              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
+            Shop
+            <svg
+              onClick={toggleMenu}
+              className="h-5 w-5 text-gray-900"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        </Link>
         {menuOpen && (
           <div
             className="flex items-center justify-center absolute left-0 z-10 mt-7 w-56 origin-top-right divide-y divide-gray-100 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
