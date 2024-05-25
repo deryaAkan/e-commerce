@@ -4,6 +4,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../store/actions/globalActions";
 import { getProducts } from "../store/actions/productActions";
+import Filter from "../Components/Filter";
 
 const Shop = () => {
   const [loading, setLoading] = useState(true);
@@ -24,30 +25,7 @@ const Shop = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
-  const [selectedFilter, setSelectedFilter] = useState("all");
 
-  const filterOptions = [
-    { value: "all", label: "All Products" },
-    { value: "category1", label: "Category 1" },
-    { value: "category2", label: "Category 2" },
-  ];
-
-  const filterProducts = () => {
-    if (selectedFilter === "all") {
-      return products;
-    } else {
-      return products.filter((product) => product.category === selectedFilter);
-    }
-  };
-
-  // const totalPages = Math.ceil(products.length / productsPerPage);
-
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products?.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
   const totalPages = Math.ceil(products?.length / productsPerPage);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -86,11 +64,31 @@ const Shop = () => {
 
   return (
     <div className="flex flex-col justify-center items-center w-full">
-      <div className="flex w-3/4 px-12 justify-between flex-wrap items-center py-6 sm:gap-3 sm:justify-center sm:flex-col">
-        <div className="text-[#252B42] flex items-center flex-grow gap-24 sm:justify-center">
+      <div className="flex w-3/4 px-4 justify-between flex-wrap items-center py-6 sm:gap-3 sm:justify-center sm:flex-col">
+        <div className="text-[#252B42] flex items-center gap-24 sm:justify-center">
           <h3 className="text-2xl font-bold">Shop</h3>
         </div>
-        <p className="text-sm text-gray-300 font-bold ">Home -- Shop</p>
+        <div className="flex text-sm text-gray-700 font-bold">
+          {" "}
+          <Link to="/" className="text-gray-400">
+            Home
+          </Link>{" "}
+          <svg
+            className="h-5 w-5 text-gray-900"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            {" "}
+            <path
+              fillRule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+              clipRule="evenodd"
+              transform="rotate(-90 10 10)"
+            />
+          </svg>
+          <Link to="/shop"> Shop </Link>
+        </div>
       </div>
       <span
         className="flex flex-row flex-wrap justify-center gap-4 sm:flex-col sm:items-center"
@@ -124,26 +122,11 @@ const Shop = () => {
       </span>
 
       <div className="flex w-3/4 justify-between flex-wrap items-center py-6">
-        <div className="text-[#252B42] w-full flex items-center justify-between flex-grow sm:flex-col sm:gap-5">
-          <h3 className="text-sm text-gray-600 font-bold">
+        <div className="text-[#252B42] w-full px-4 flex items-center justify-between flex-grow sm:flex-col sm:gap-5">
+          <h3 className="text-sm text-gray-400 font-bold">
             Showing all {products?.length} results
           </h3>
-          <div className="flex items-center gap-2">
-            <select
-              value={selectedFilter}
-              onChange={(e) => setSelectedFilter(e.target.value)}
-              className="border-gray-400 border px-2 py-2 rounded-md text-sm text-gray-400 bg-[#FAFAFA]"
-            >
-              {filterOptions?.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <button className="bg-[#23A6F0] text-sm text-white px-6 py-2 rounded-md">
-              Filter
-            </button>
-          </div>
+          <Filter />
         </div>
       </div>
       <div className="flex w-3/4 justify-center flex-wrap py-10 gap-10">
