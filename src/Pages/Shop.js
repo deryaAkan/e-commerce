@@ -11,6 +11,7 @@ const Shop = () => {
   const dispatch = useDispatch();
   const categoriesData = useSelector((store) => store.global.categories);
   const sortByRating = categoriesData.sort((a, b) => b.rating - a.rating);
+
   const products = useSelector((store) => store.product.productList);
 
   useEffect(() => {

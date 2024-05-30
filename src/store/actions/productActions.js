@@ -12,6 +12,7 @@ export const getProducts = () => async (dispatch, getState) => {
     .then((res) => {
       dispatch(pageCountSetter(res.data));
       dispatch(productListSetter(res.data.products));
+      dispatch(fetchStateSetter(fetchStates.FETCHED));
     })
     .catch((err) => {
       dispatch({
