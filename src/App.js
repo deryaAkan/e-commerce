@@ -6,11 +6,6 @@ import Footer from "./Layouts/Footer";
 import Header from "./Layouts/Header";
 import Home from "./Pages/Home";
 import Shop from "./Pages/Shop";
-import {
-  Route,
-  Switch,
-  useHistory,
-} from "react-router-dom/cjs/react-router-dom.min";
 import TeamPage from "./Pages/TeamPage";
 import AboutPage from "./Pages/AboutPage";
 import ContactPage from "./Pages/ContactPage";
@@ -20,6 +15,7 @@ import LoginForm from "./Components/LoginForm";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setUserName } from "./store/actions/userActions";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   const baseURL = "https://workintech-fe-ecommerce.onrender.com";
@@ -54,25 +50,27 @@ function App() {
           localStorage.removeItem("token");
         });
     }
-  }, []);
+  }, [dispatch, instance]);
 
   return (
-    <div className="App">
-      <Header />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/shop" component={Shop} />
-        <Route path="/team" component={TeamPage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/contact" component={ContactPage} />
-        <Route path="/products" component={ProductPage} />
-        <Route path="/signup" component={SignUpForm} />
-        <Route path="/login" component={LoginForm} />
-        <Route path="/shop/:gender/:categoryId" component={Shop} />
-      </Switch>
-      <Footer />
-      <ToastContainer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/shop" component={Shop} />
+          <Route path="/team" component={TeamPage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/contact" component={ContactPage} />
+          <Route path="/products" component={ProductPage} />
+          <Route path="/signup" component={SignUpForm} />
+          <Route path="/login" component={LoginForm} />
+          <Route path="/shop/:gender/:categoryId" component={Shop} />
+        </Switch>
+        <Footer />
+        <ToastContainer />
+      </div>
+    </Router>
   );
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import HomePageHero1 from "../assets/homepage/shop-hero-1-product-slide-1.png";
+import { Link } from "react-router-dom";
 
 const ChevronLeft = () => (
   <svg
@@ -97,18 +98,18 @@ export default function Slider({
                 <p className="font-normal text-[20px] w-3/5 sm:w-4/6 sm:text-center">
                   {slide.description}
                 </p>
-                <button
-                  onClick={() => history.push("/shop")}
+                <Link
+                  to="/shop"
                   className="py-[15px] px-[10px] flex border-solid border-[1px] bg-green rounded-md w-40 justify-center text-lg font-bold tracking-normal"
                 >
                   SHOP NOW
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         ))}
       </div>
-      <div className="absolute inset-0 flex items-center justify-between p-4">
+      <div className="inset-0 flex items-center justify-between p-4">
         <button
           onClick={prev}
           className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
