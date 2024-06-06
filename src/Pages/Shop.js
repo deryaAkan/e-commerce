@@ -3,16 +3,29 @@ import Companies from "../Layouts/Companies";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../store/actions/globalActions";
-import { getProducts } from "../store/actions/productActions";
+import {
+  getProducts,
+  getProductsByFilter,
+} from "../store/actions/productActions";
 import Filter from "../Components/Filter";
 
 const Shop = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const categoriesData = useSelector((store) => store.global.categories);
   const sortByRating = categoriesData.sort((a, b) => b.rating - a.rating);
 
   const products = useSelector((store) => store.product.productList);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const handleFilterChange = (filterParams) => {
+    dispatch(getProductsByFilter(filterParams));
+    console.log("FILTER PARAMS THING", filterParams);
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -127,6 +140,36 @@ const Shop = () => {
           <h3 className="text-sm text-gray-400 font-bold">
             Showing all {products?.length} results
           </h3>
+          <div className="flex items-center gap-10">
+            <button
+              className="inline-flex w-full justify-center gap-x-1.5 text-sm text-gray-900"
+              id="menu-button"
+              aria-expanded={menuOpen}
+              aria-haspopup="true"
+            >
+              Order
+              <svg
+                onClick={toggleMenu}
+                className="h-5 w-5 text-gray-900"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
+            <form>
+              <input
+                className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
+                placeholder="search"
+                onChange={(e) => handleFilterChange(e.target.value)}
+              ></input>
+            </form>
+          </div>
           <Filter />
         </div>
       </div>

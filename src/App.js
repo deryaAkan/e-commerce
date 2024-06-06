@@ -68,6 +68,7 @@ function App() {
         <Route path="/products" component={ProductPage} />
         <Route path="/signup" component={SignUpForm} />
         <Route path="/login" component={LoginForm} />
+        <Route path="/shop/:gender/:categoryId" component={Shop} />
       </Switch>
       <Footer />
       <ToastContainer />

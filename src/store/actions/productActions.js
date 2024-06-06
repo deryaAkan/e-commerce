@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL: "https://workintech-fe-ecommerce.onrender.com",
 });
 
-export const getProducts = () => async (dispatch, getState) => {
+export const getProducts = () => async (dispatch) => {
   dispatch(fetchStateSetter(fetchStates.FETCHING));
 
   instance
@@ -13,6 +13,46 @@ export const getProducts = () => async (dispatch, getState) => {
       dispatch(pageCountSetter(res.data));
       dispatch(productListSetter(res.data.products));
       dispatch(fetchStateSetter(fetchStates.FETCHED));
+    })
+    .catch((err) => {
+      dispatch({
+        type: "product/fetchProductList/rejected",
+        payload: err.message,
+      });
+      console.error("Error fetching product list:", err);
+    });
+};
+
+export const getProductsByCategory = (categoryId) => async (dispatch) => {
+  dispatch(fetchStateSetter(fetchStates.FETCHING));
+
+  instance
+    .get(`/products?category=${categoryId}`)
+    .then((res) => {
+      dispatch(pageCountSetter(res.data));
+      dispatch(productListSetter(res.data.products));
+      dispatch(fetchStateSetter(fetchStates.FETCHED));
+      console.log("categıry ile gelen", res.data);
+    })
+    .catch((err) => {
+      dispatch({
+        type: "product/fetchProductList/rejected",
+        payload: err.message,
+      });
+      console.error("Error fetching product list:", err);
+    });
+};
+
+export const getProductsByFilter = (filterParams) => async (dispatch) => {
+  dispatch(fetchStateSetter(fetchStates.FETCHING));
+
+  instance
+    .get(`/products?filter=${filterParams}`)
+    .then((res) => {
+      dispatch(pageCountSetter(res.data));
+      dispatch(productListSetter(res.data.products));
+      dispatch(fetchStateSetter(fetchStates.FETCHED));
+      console.log("filter ile gelen", res.data);
     })
     .catch((err) => {
       dispatch({

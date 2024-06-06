@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getCategories } from "../store/actions/globalActions";
+import { getProductsByCategory } from "../store/actions/productActions";
 
 export default function Dropdown() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,6 +16,11 @@ export default function Dropdown() {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const categoryHandleClick = (categoryId) => {
+    dispatch(getProductsByCategory(categoryId));
+    console.log("PRODUCT BY CATEGORY ID", categoryId);
   };
 
   const closeMenu = (e) => {
@@ -82,7 +88,7 @@ export default function Dropdown() {
                   (box, index) =>
                     box.gender === "k" && (
                       <Link
-                        onClick={toggleMenu}
+                        onClick={() => categoryHandleClick(box.id)}
                         key={index}
                         to={`/shop/kadin/${box.title.toLowerCase()}`}
                         className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
@@ -111,7 +117,7 @@ export default function Dropdown() {
                   (box, index) =>
                     box.gender === "e" && (
                       <Link
-                        onClick={toggleMenu}
+                        onClick={() => categoryHandleClick(box.id)}
                         key={index}
                         to={`/shop/erkek/${box.title.toLowerCase()}`}
                         className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
