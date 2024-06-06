@@ -6,6 +6,7 @@ import { getCategories } from "../store/actions/globalActions";
 import {
   getProducts,
   getProductsByFilter,
+  getSortedProducts,
 } from "../store/actions/productActions";
 import Filter from "../Components/Filter";
 
@@ -25,6 +26,11 @@ const Shop = () => {
   const handleFilterChange = (filterParams) => {
     dispatch(getProductsByFilter(filterParams));
     console.log("FILTER PARAMS THING", filterParams);
+  };
+
+  const handleSortChange = (sortParams) => {
+    dispatch(getSortedProducts(sortParams));
+    console.log("SORTEEED", sortParams);
   };
 
   useEffect(() => {
@@ -141,30 +147,20 @@ const Shop = () => {
             Showing all {products?.length} results
           </h3>
           <div className="flex items-center gap-10">
-            <button
-              className="inline-flex w-full justify-center gap-x-1.5 text-sm text-gray-900"
-              id="menu-button"
-              aria-expanded={menuOpen}
-              aria-haspopup="true"
+            <select
+              defaultValue="popularity"
+              onChange={(e) => handleSortChange(e.target.value)}
+              className="text-sm max-w-fit text-[#737373] shadow-sm py-2 px-4"
             >
-              Order
-              <svg
-                onClick={toggleMenu}
-                className="h-5 w-5 text-gray-900"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
+              <option>sort</option>
+              <option value="price:asc">Price low to high</option>
+              <option value="price:desc">Price high to low</option>
+              <option value="rating:asc">Rating low to high</option>
+              <option value="rating:desc">Rating hhig to low</option>
+            </select>
             <form>
               <input
-                className="text-sm max-w-fit text-[#737373] shadow-md py-2 px-4"
+                className="text-sm max-w-fit text-[#737373] shadow-sm py-2 px-4"
                 placeholder="search"
                 onChange={(e) => handleFilterChange(e.target.value)}
               ></input>
