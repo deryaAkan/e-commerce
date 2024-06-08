@@ -7,12 +7,14 @@ import {
   getProducts,
   getProductsByFilter,
   getSortedProducts,
+  getProductsByCategory,
 } from "../store/actions/productActions";
 import Filter from "../Components/Filter";
 
 const Shop = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const dispatch = useDispatch();
   const categoriesData = useSelector((store) => store.global.categories);
   const sortByRating = categoriesData.sort((a, b) => b.rating - a.rating);
@@ -29,8 +31,13 @@ const Shop = () => {
   };
 
   const handleSortChange = (sortParams) => {
-    dispatch(getSortedProducts(sortParams));
+    dispatch(getSortedProducts(sortParams, selectedCategory));
     console.log("SORTEEED", sortParams);
+  };
+
+  const handleCategoryClick = (categoryId) => {
+    setSelectedCategory(categoryId);
+    dispatch(getProductsByCategory(categoryId));
   };
 
   useEffect(() => {
@@ -41,7 +48,7 @@ const Shop = () => {
       setLoading(false);
     }, 300);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [dispatch]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 12;
@@ -49,6 +56,11 @@ const Shop = () => {
   const totalPages = Math.ceil(products?.length / productsPerPage);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const displayedProducts = products.slice(
+    (currentPage - 1) * productsPerPage,
+    currentPage * productsPerPage
+  );
 
   if (loading) {
     return (
@@ -115,29 +127,23 @@ const Shop = () => {
         id="box-cards"
       >
         {sortByRating.slice(0, 4).map((box, index) => (
-          <Link
+          <div
             key={index}
-            to={`/shop/${
-              box.gender === "e" ? "erkek" : "kadin"
-            }/${box.title.toLowerCase()}`}
+            onClick={() => handleCategoryClick(box.id)}
+            className="relative shadow-lg sm:justify-center shadow-gray flex items-center sm:flex-col sm:w-fit cursor-pointer"
           >
-            <div
-              id="container"
-              className="relative shadow-lg sm:justify-center shadow-gray flex items-center sm:flex-col sm:w-fit  "
+            <img className="object-cover w-[250px] h-[250px]" src={box.img} />
+            <button
+              id="center"
+              className="absolute t-1/2 w-full text-center text-lg sm:text-xl text-white font-bold"
             >
-              <img className="object-cover w-[250px] h-[250px]" src={box.img} />
-              <button
-                id="center"
-                className="absolute t-1/2 w-full text-center text-lg sm:text-xl text-white font-bold"
-              >
-                <p className="drop-shadow-4xl">{box.title}</p>
-                <p className="drop-shadow-4xl">Rating : {box.rating}</p>
-                <p className="drop-shadow-4xl">
-                  {box.gender === "e" ? "Erkek" : "Kadın"}
-                </p>
-              </button>
-            </div>
-          </Link>
+              <p className="drop-shadow-4xl">{box.title}</p>
+              <p className="drop-shadow-4xl">Rating : {box.rating}</p>
+              <p className="drop-shadow-4xl">
+                {box.gender === "e" ? "Erkek" : "Kadın"}
+              </p>
+            </button>
+          </div>
         ))}
       </span>
 
@@ -152,11 +158,11 @@ const Shop = () => {
               onChange={(e) => handleSortChange(e.target.value)}
               className="text-sm max-w-fit text-[#737373] shadow-sm py-2 px-4"
             >
-              <option>sort</option>
+              <option value="">Sort</option>
               <option value="price:asc">Price low to high</option>
               <option value="price:desc">Price high to low</option>
               <option value="rating:asc">Rating low to high</option>
-              <option value="rating:desc">Rating hhig to low</option>
+              <option value="rating:desc">Rating high to low</option>
             </select>
             <form>
               <input
@@ -170,7 +176,7 @@ const Shop = () => {
         </div>
       </div>
       <div className="flex w-3/4 justify-center flex-wrap py-10 gap-10">
-        {products?.map((product) => (
+        {displayedProducts.map((product) => (
           <Link to="/products" key={product.id}>
             <div className="flex flex-col max-w-xs bg-white overflow-hidden font-bold gap-5">
               <img src={product.images[0].url} alt="Ürün Resmi" />
@@ -188,7 +194,7 @@ const Shop = () => {
             </div>
             <div className="flex items-center justify-center gap-1 py-3 w-3 h-3 rounded-full">
               <div className="bg-[#23A6F0]"></div>
-              <div className="bg-[#23856D]"></div>
+              <div className="bg-[#23856"></div>
               <div className="bg-[#E77C40]"></div>
               <div className="bg-black"></div>
             </div>

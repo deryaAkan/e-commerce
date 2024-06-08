@@ -63,25 +63,31 @@ export const getProductsByFilter = (filterParams) => async (dispatch) => {
     });
 };
 
-export const getSortedProducts = (sortParams) => async (dispatch) => {
-  dispatch(fetchStateSetter(fetchStates.FETCHING));
+export const getSortedProducts =
+  (sortParams, categoryId) => async (dispatch) => {
+    dispatch(fetchStateSetter(fetchStates.FETCHING));
 
-  instance
-    .get(`/products?sort=${sortParams}`)
-    .then((res) => {
-      dispatch(pageCountSetter(res.data));
-      dispatch(productListSetter(res.data.products));
-      dispatch(fetchStateSetter(fetchStates.FETCHED));
-      console.log("sort ile gelen", res.data);
-    })
-    .catch((err) => {
-      dispatch({
-        type: "product/fetchProductList/rejected",
-        payload: err.message,
+    let url = `/products?sort=${sortParams}`;
+    if (categoryId) {
+      url += `&category=${categoryId}`;
+    }
+
+    instance
+      .get(url)
+      .then((res) => {
+        dispatch(pageCountSetter(res.data));
+        dispatch(productListSetter(res.data.products));
+        dispatch(fetchStateSetter(fetchStates.FETCHED));
+        console.log("sort ile gelen", res.data);
+      })
+      .catch((err) => {
+        dispatch({
+          type: "product/fetchProductList/rejected",
+          payload: err.message,
+        });
+        console.error("Error fetching product list:", err);
       });
-      console.error("Error fetching product list:", err);
-    });
-};
+  };
 
 export const productActions = {
   setProductList: "SET_PRODUCT_LIST",
