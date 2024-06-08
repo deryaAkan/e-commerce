@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 const ChevronLeft = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-16 w-16"
+    className="h-8 w-8 hover:h-10 hover:w-10"
     fill="none"
     viewBox="0 0 24 24"
-    stroke="currentColor"
+    stroke="white"
   >
     <path
       strokeLinecap="round"
@@ -23,10 +23,10 @@ const ChevronLeft = () => (
 const ChevronRight = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="h-16 w-16"
+    className="h-8 w-8 hover:h-10 hover:w-10"
     fill="none"
     viewBox="0 0 24 24"
-    stroke="currentColor"
+    stroke="white"
   >
     <path
       strokeLinecap="round"
@@ -60,7 +60,6 @@ export default function Slider({
     },
   ];
   const [curr, setCurr] = useState(0);
-  const history = useHistory();
 
   const prev = () =>
     setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1));
@@ -76,10 +75,7 @@ export default function Slider({
   return (
     <div className="relative font-Montserrat bg-[#01B6DD] flex flex-col items-center">
       <div className="flex justify-center w-full">
-        <button
-          onClick={prev}
-          className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white self-center"
-        >
+        <button onClick={prev} className="p-1 text-gray-800 self-center">
           <ChevronLeft />
         </button>
         <div
@@ -116,10 +112,7 @@ export default function Slider({
             </div>
           ))}
         </div>
-        <button
-          onClick={next}
-          className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white self-center"
-        >
+        <button onClick={next} className="p-1 text-gray-80self-center">
           <ChevronRight />
         </button>
       </div>

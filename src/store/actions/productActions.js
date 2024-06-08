@@ -32,7 +32,7 @@ export const getProductsByCategory = (categoryId) => async (dispatch) => {
       dispatch(pageCountSetter(res.data));
       dispatch(productListSetter(res.data.products));
       dispatch(fetchStateSetter(fetchStates.FETCHED));
-      console.log("categıry ile gelen", res.data);
+      console.log("category ile gelen", res.data);
     })
     .catch((err) => {
       dispatch({
