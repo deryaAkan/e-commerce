@@ -32,7 +32,7 @@ const Shop = () => {
 
   const handleSortChange = (sortParams) => {
     dispatch(getSortedProducts(sortParams, selectedCategory));
-    console.log("SORTEEED", sortParams);
+    console.log("SORTED PRODUCTS", sortParams);
   };
 
   const handleCategoryClick = (categoryId) => {
@@ -57,7 +57,7 @@ const Shop = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const displayedProducts = products.slice(
+  const displayedProducts = products?.slice(
     (currentPage - 1) * productsPerPage,
     currentPage * productsPerPage
   );
@@ -176,7 +176,7 @@ const Shop = () => {
         </div>
       </div>
       <div className="flex w-3/4 justify-center flex-wrap py-10 gap-10">
-        {displayedProducts.map((product) => (
+        {displayedProducts?.map((product) => (
           <Link to="/products" key={product.id}>
             <div className="flex flex-col max-w-xs bg-white overflow-hidden font-bold gap-5">
               <img src={product.images[0].url} alt="Ürün Resmi" />
