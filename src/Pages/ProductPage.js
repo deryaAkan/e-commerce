@@ -8,9 +8,12 @@ import yeto1 from "../assets/productpage/product-cover-5productpagebest.png";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import ProductCard from "../Components/ProductCard";
 import Companies from "../Layouts/Companies";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ProductPage() {
-  const products = [
+  const products = useSelector((store) => store.product.productList);
+
+  const products2 = [
     {
       id: 1,
       name: "Graphic Design",
@@ -91,7 +94,7 @@ export default function ProductPage() {
       <div className="flex flex-col items-center gap-5 py-10">
         <div className="flex w-3/4 gap-5 font-bold sm:flex-col">
           <div className="">
-            <Slider3 className="bg-black" slides={slides3} />
+            <Slider3 className="bg-black" slides={products.image} />
           </div>
           <div className="flex flex-col text-sm text-[#252B42] text-left gap-5 py-5">
             <p className="text-xl">Floating Phone</p>
@@ -186,7 +189,7 @@ export default function ProductPage() {
             <p>BESTSELLER PRODUCTS</p>
           </div>
           <div className="flex w-full justify-center flex-wrap py-5 gap-10 sm:w-full">
-            {products.map((product) => (
+            {products2.map((product) => (
               <Link to="/productpage" key={product.id}>
                 <ProductCard product={product} />
               </Link>

@@ -1,27 +1,30 @@
 import axios from "axios";
 import { fetchStates } from "../reducers/productReducer";
+
 const instance = axios.create({
   baseURL: "https://workintech-fe-ecommerce.onrender.com",
 });
 
-export const getProducts = () => async (dispatch) => {
-  dispatch(fetchStateSetter(fetchStates.FETCHING));
+export const getProducts =
+  (limit = 25, offset = 0) =>
+  async (dispatch) => {
+    dispatch(fetchStateSetter(fetchStates.FETCHING));
 
-  instance
-    .get("/products")
-    .then((res) => {
-      dispatch(pageCountSetter(res.data));
+    try {
+      const res = await instance.get(
+        `/products?limit=${limit}&offset=${offset}`
+      );
+      dispatch(productCountSetter(res.data.total)); // Assuming `total` is the total number of products
       dispatch(productListSetter(res.data.products));
       dispatch(fetchStateSetter(fetchStates.FETCHED));
-    })
-    .catch((err) => {
+    } catch (err) {
       dispatch({
         type: "product/fetchProductList/rejected",
         payload: err.message,
       });
       console.error("Error fetching product list:", err);
-    });
-};
+    }
+  };
 
 export const getProductsByCategory = (categoryId) => async (dispatch) => {
   dispatch(fetchStateSetter(fetchStates.FETCHING));

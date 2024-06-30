@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from "react";
-import Companies from "../Layouts/Companies";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories } from "../store/actions/globalActions";
 import {
   getProducts,
   getProductsByFilter,
   getSortedProducts,
   getProductsByCategory,
+  setActivePage,
 } from "../store/actions/productActions";
+import Companies from "../Layouts/Companies";
 import Filter from "../Components/Filter";
+import { Pagination } from "../Components/Pagination";
 
 const Shop = () => {
+  const products = useSelector((store) => store.product.productList);
+  const productPerPage = useSelector((store) => store.product.productPerPage);
   const [menuOpen, setMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [limit] = useState(15);
+  const totalPages = Math.ceil(products?.length / productPerPage);
+  const activePage = useSelector((store) => store.product.activePage);
   const dispatch = useDispatch();
   const categoriesData = useSelector((store) => store.global.categories);
   const sortByRating = categoriesData.sort((a, b) => b.rating - a.rating);
-
-  const products = useSelector((store) => store.product.productList);
+  const onPageChange = (page) => {
+    dispatch(setActivePage(page));
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -27,12 +35,10 @@ const Shop = () => {
 
   const handleFilterChange = (filterParams) => {
     dispatch(getProductsByFilter(filterParams));
-    console.log("FILTER PARAMS THING", filterParams);
   };
 
   const handleSortChange = (sortParams) => {
     dispatch(getSortedProducts(sortParams, selectedCategory));
-    console.log("SORTED PRODUCTS", sortParams);
   };
 
   const handleCategoryClick = (categoryId) => {
@@ -42,25 +48,14 @@ const Shop = () => {
 
   useEffect(() => {
     setLoading(true);
-    const timeout = setTimeout(() => {
-      dispatch(getCategories());
-      dispatch(getProducts());
+    dispatch(getProducts(limit, (currentPage - 1) * limit)).finally(() => {
       setLoading(false);
-    }, 300);
-    return () => clearTimeout(timeout);
-  }, [dispatch]);
+    });
+  }, [dispatch, limit, currentPage]);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 12;
-
-  const totalPages = Math.ceil(products?.length / productsPerPage);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const displayedProducts = products?.slice(
-    (currentPage - 1) * productsPerPage,
-    currentPage * productsPerPage
-  );
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   if (loading) {
     return (
@@ -101,17 +96,15 @@ const Shop = () => {
           <h3 className="text-2xl font-bold">Shop</h3>
         </div>
         <div className="flex text-sm text-gray-700 font-bold">
-          {" "}
           <Link to="/" className="text-gray-400">
             Home
-          </Link>{" "}
+          </Link>
           <svg
             className="h-5 w-5 text-gray-900"
             viewBox="0 0 20 20"
             fill="currentColor"
             aria-hidden="true"
           >
-            {" "}
             <path
               fillRule="evenodd"
               d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
@@ -127,9 +120,10 @@ const Shop = () => {
         id="box-cards"
       >
         {sortByRating.slice(0, 4).map((box, index) => (
-          <div
+          <Link
             key={index}
             onClick={() => handleCategoryClick(box.id)}
+            to={`/shop/${box.gender}/${box.title.toLowerCase()}`}
             className="relative shadow-lg sm:justify-center shadow-gray flex items-center sm:flex-col sm:w-fit cursor-pointer"
           >
             <img className="object-cover w-[250px] h-[250px]" src={box.img} />
@@ -143,7 +137,7 @@ const Shop = () => {
                 {box.gender === "e" ? "Erkek" : "Kadın"}
               </p>
             </button>
-          </div>
+          </Link>
         ))}
       </span>
 
@@ -176,8 +170,8 @@ const Shop = () => {
         </div>
       </div>
       <div className="flex w-3/4 justify-center flex-wrap py-10 gap-10">
-        {displayedProducts?.map((product) => (
-          <Link to="/products" key={product.id}>
+        {products?.map((product) => (
+          <Link to={`/product/${product.id}/${product.name}`} key={product.id}>
             <div className="flex flex-col max-w-xs bg-white overflow-hidden font-bold gap-5">
               <img src={product.images[0].url} alt="Ürün Resmi" />
               <div className="flex flex-col gap-3 text-sm">
@@ -201,19 +195,13 @@ const Shop = () => {
           </Link>
         ))}
       </div>
-      <div>
-        <ul className="flex justify-center space-x-4">
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <li
-              key={index}
-              className="cursor-pointer"
-              onClick={() => paginate(index + 1)}
-            >
-              {index + 1}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <span id="pagination" className="sm:py-10 text-black">
+        <Pagination
+          totalPages={totalPages}
+          currentPage={activePage}
+          onPageChange={onPageChange}
+        />
+      </span>
       <Companies />
     </div>
   );
