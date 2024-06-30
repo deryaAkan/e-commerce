@@ -12,7 +12,7 @@ import ContactPage from "./Pages/ContactPage";
 import ProductPage from "./Pages/ProductPage";
 import SignUpForm from "./Components/SignUpForm";
 import LoginForm from "./Components/LoginForm";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import { setUserName } from "./store/actions/userActions";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
