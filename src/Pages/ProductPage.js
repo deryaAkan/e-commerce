@@ -1,5 +1,4 @@
 import Slider3 from "../Components/Slider3";
-import productPageSlider1 from "../assets/productpage/single-product-1-cover-2.png";
 import productPageThumb1 from "../assets/productpage/single-product-1-thumb-1.png";
 import productPageThumb2 from "../assets/productpage/single-product-1-thumb-2.png";
 import starsProduct from "../assets/productpage/Vectorstar.svg";
@@ -8,11 +7,16 @@ import yeto1 from "../assets/productpage/product-cover-5productpagebest.png";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import ProductCard from "../Components/ProductCard";
 import Companies from "../Layouts/Companies";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function ProductPage() {
-  const products = useSelector((store) => store.product.productList);
+  const { productId } = useParams();
 
+  useEffect(() => {
+    instance.get(`/product/${productId}`).then((res) => {
+      setProduct(res.data);
+    });
+  }, [productId]);
   const products2 = [
     {
       id: 1,
@@ -80,21 +84,12 @@ export default function ProductPage() {
     },
   ];
 
-  const slides3 = [
-    {
-      img: productPageSlider1,
-    },
-    {
-      img: productPageSlider1,
-    },
-  ];
-
   return (
     <>
       <div className="flex flex-col items-center gap-5 py-10">
         <div className="flex w-3/4 gap-5 font-bold sm:flex-col">
           <div className="">
-            <Slider3 className="bg-black" slides={products.image} />
+            <Slider3 className="bg-black" />
           </div>
           <div className="flex flex-col text-sm text-[#252B42] text-left gap-5 py-5">
             <p className="text-xl">Floating Phone</p>

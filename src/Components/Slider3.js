@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import productPageSlider1 from "../assets/productpage/single-product-1-cover-2.png";
+import { useSelector } from "react-redux";
 
 const ChevronLeft = () => (
   <svg
@@ -40,8 +40,8 @@ export default function Slider({
   autoSlide = false,
   autoSlideInterval = 3000,
 }) {
+  const products = useSelector((store) => store.product.productList);
   const [curr, setCurr] = useState(0);
-  const history = useHistory();
 
   const slides3 = [
     {
@@ -53,9 +53,9 @@ export default function Slider({
   ];
 
   const prev = () =>
-    setCurr((curr) => (curr === 0 ? slides3.length - 1 : curr - 1));
+    setCurr((curr) => (curr === 0 ? products?.length - 1 : curr - 1));
   const next = () =>
-    setCurr((curr) => (curr === slides3.length - 1 ? 0 : curr + 1));
+    setCurr((curr) => (curr === products?.length - 1 ? 0 : curr + 1));
 
   useEffect(() => {
     if (!autoSlide) return;
@@ -69,13 +69,13 @@ export default function Slider({
         className="flex transition-transform ease-out duration-500 h-[640px]   "
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
-        {slides3.map((slide, index) => (
+        {products?.map((slide, index) => (
           <div
             key={index}
             className="w-full flex justify-center flex-shrink-0 relative"
           >
             <img
-              src={slide.img}
+              src={slide.image}
               alt={`Slide ${index}`}
               className="w-full object-cover sm:object-cover"
             />
