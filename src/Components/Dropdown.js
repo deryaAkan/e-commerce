@@ -89,7 +89,7 @@ export default function Dropdown() {
                     box.gender === "k" && (
                       <Link
                         onClick={() => categoryHandleClick(box.id)}
-                        key={index} 
+                        key={index}
                         to={`/shop/${box.gender}/${box.title.toLowerCase()}`}
                         className="text-gray-400 block px-4 py-2 text-sm hover:text-[#00A1C1]"
                         role="menuitem"
