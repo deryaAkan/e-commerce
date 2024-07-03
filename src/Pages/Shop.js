@@ -11,26 +11,21 @@ import {
 import Companies from "../Layouts/Companies";
 import Filter from "../Components/Filter";
 import { Pagination } from "../Components/Pagination";
+import Categories from "../Components/Categories";
 
 const Shop = () => {
+  const dispatch = useDispatch();
   const products = useSelector((store) => store.product.productList);
   const productPerPage = useSelector((store) => store.product.productPerPage);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const activePage = useSelector((store) => store.product.activePage);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [limit] = useState(15);
   const totalPages = Math.ceil(products?.length / productPerPage);
-  const activePage = useSelector((store) => store.product.activePage);
-  const dispatch = useDispatch();
-  const categoriesData = useSelector((store) => store.global.categories);
-  const sortByRating = categoriesData.sort((a, b) => b.rating - a.rating);
+
   const onPageChange = (page) => {
     dispatch(setActivePage(page));
-  };
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
   };
 
   const handleFilterChange = (filterParams) => {
@@ -41,21 +36,12 @@ const Shop = () => {
     dispatch(getSortedProducts(sortParams, selectedCategory));
   };
 
-  const handleCategoryClick = (categoryId) => {
-    setSelectedCategory(categoryId);
-    dispatch(getProductsByCategory(categoryId));
-  };
-
   useEffect(() => {
     setLoading(true);
     dispatch(getProducts(limit, (currentPage - 1) * limit)).finally(() => {
       setLoading(false);
     });
   }, [dispatch, limit, currentPage]);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
 
   if (loading) {
     return (
@@ -115,32 +101,7 @@ const Shop = () => {
           <Link to="/shop"> Shop </Link>
         </div>
       </div>
-      <span
-        className="flex flex-row flex-wrap justify-center gap-4 sm:flex-col sm:items-center"
-        id="box-cards"
-      >
-        {sortByRating.slice(0, 4).map((box, index) => (
-          <Link
-            key={index}
-            onClick={() => handleCategoryClick(box.id)}
-            to={`/shop/${box.gender}/${box.title.toLowerCase()}`}
-            className="relative shadow-lg sm:justify-center shadow-gray flex items-center sm:flex-col sm:w-fit cursor-pointer"
-          >
-            <img className="object-cover w-[250px] h-[250px]" src={box.img} />
-            <button
-              id="center"
-              className="absolute t-1/2 w-full text-center text-lg sm:text-xl text-white font-bold"
-            >
-              <p className="drop-shadow-4xl">{box.title}</p>
-              <p className="drop-shadow-4xl">Rating : {box.rating}</p>
-              <p className="drop-shadow-4xl">
-                {box.gender === "e" ? "Erkek" : "Kadın"}
-              </p>
-            </button>
-          </Link>
-        ))}
-      </span>
-
+      <Categories />
       <div className="flex w-3/4 justify-between flex-wrap items-center py-6">
         <div className="text-[#252B42] w-full px-4 flex items-center justify-between flex-grow sm:flex-col sm:gap-5">
           <h3 className="text-sm text-gray-400 font-bold">
