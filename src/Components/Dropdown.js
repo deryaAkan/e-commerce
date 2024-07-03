@@ -20,7 +20,6 @@ export default function Dropdown() {
 
   const categoryHandleClick = (categoryId) => {
     dispatch(getProductsByCategory(categoryId));
-    console.log("PRODUCT BY CATEGORY ID", categoryId);
   };
 
   const closeMenu = (e) => {

@@ -14,7 +14,7 @@ export const getProducts =
       const res = await instance.get(
         `/products?limit=${limit}&offset=${offset}`
       );
-      dispatch(productCountSetter(res.data.total)); // Assuming `total` is the total number of products
+      dispatch(productCountSetter(res.data.total));
       dispatch(productListSetter(res.data.products));
       dispatch(fetchStateSetter(fetchStates.FETCHED));
     } catch (err) {

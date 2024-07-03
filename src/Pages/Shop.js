@@ -5,13 +5,13 @@ import {
   getProducts,
   getProductsByFilter,
   getSortedProducts,
-  getProductsByCategory,
   setActivePage,
 } from "../store/actions/productActions";
 import Companies from "../Layouts/Companies";
-import Filter from "../Components/Filter";
 import { Pagination } from "../Components/Pagination";
-import Categories from "../Components/Categories";
+import Categories from "../Components/ShopPage/Categories";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBorderAll, faList } from "@fortawesome/free-solid-svg-icons";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -103,11 +103,15 @@ const Shop = () => {
       </div>
       <Categories />
       <div className="flex w-3/4 justify-between flex-wrap items-center py-6">
-        <div className="text-[#252B42] w-full px-4 flex items-center justify-between flex-grow sm:flex-col sm:gap-5">
+        <div className="text-[#252B42] w-full flex-wrap px-4 flex items-center justify-between flex-grow sm:flex-col sm:gap-5">
           <h3 className="text-sm text-gray-400 font-bold">
             Showing all {products?.length} results
           </h3>
-          <div className="flex items-center gap-10">
+          <div className="flex flex-wrap items-center gap-10 sm:justify-center">
+            <div className="flex items-center gap-7">
+              <FontAwesomeIcon className="h-6 w-6" icon={faBorderAll} />
+              <FontAwesomeIcon className="h-6 w-6" icon={faList} />
+            </div>
             <select
               defaultValue="popularity"
               onChange={(e) => handleSortChange(e.target.value)}
@@ -126,8 +130,10 @@ const Shop = () => {
                 onChange={(e) => handleFilterChange(e.target.value)}
               ></input>
             </form>
+            <button className="bg-[#23A6F0] text-sm text-white px-6 py-2">
+              Filter
+            </button>
           </div>
-          <Filter />
         </div>
       </div>
       <div className="flex w-3/4 justify-center flex-wrap py-10 gap-10">
@@ -137,25 +143,20 @@ const Shop = () => {
               <img src={product.images[0].url} alt="Ürün Resmi" />
               <div className="flex flex-col gap-3 text-sm">
                 <h3 className="text-base text-[#252B42]">{product.name}</h3>
-                <p className="text-[#737373]">{product.category}</p>
-                <div className="flex justify-center font-bold text-[#BDBDBD] gap-1">
-                  <span>{product.price}</span>
-                  <span>{product.rating}</span>
-                  <span>{product.sell_count}</span>
-                  <span>{product.stock}</span>
-                  <span>{product.store_id}</span>
+                <div className="flex flex-col justify-center font-bold text-[#BDBDBD] gap-1">
+                  <span className="text-lg text-green-600">
+                    {product.price}$
+                  </span>
+                  <div className="flex justify-center gap-7">
+                    <span> rating: {product.rating}/5</span>
+                    <span> stock: {product.stock}</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-1 py-3 w-3 h-3 rounded-full">
-              <div className="bg-[#23A6F0]"></div>
-              <div className="bg-[#23856"></div>
-              <div className="bg-[#E77C40]"></div>
-              <div className="bg-black"></div>
-            </div>
           </Link>
         ))}
-      </div>
+      </div>{" "}
       <span id="pagination" className="sm:py-10 text-black">
         <Pagination
           totalPages={totalPages}

@@ -11,10 +11,10 @@ export default function Categories() {
 
   return (
     <span
-      className="flex flex-row flex-wrap justify-center gap-4 sm:flex-col sm:items-center"
+      className="flex flex-wrap justify-center gap-4 sm:flex-col sm:items-center"
       id="box-cards"
     >
-      {sortCategoriesByRating.slice(0, 4).map((category) => (
+      {sortCategoriesByRating.slice(0, 5).map((category) => (
         <Link
           to={`/shop/${
             category.code.includes("e:")
@@ -25,7 +25,7 @@ export default function Categories() {
           className="relative shadow-lg sm:justify-center shadow-gray flex items-center sm:flex-col sm:w-fit cursor-pointer"
         >
           <img
-            className="object-cover w-[250px] h-[250px]"
+            className="object-cover w-[200px] h-[200px]"
             src={category.img}
           />
           <button

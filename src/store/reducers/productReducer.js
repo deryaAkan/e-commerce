@@ -7,7 +7,7 @@ export const fetchStates = {
 
 const initialState = {
   product: {
-    productList: {},
+    productList: [],
     totalProductCount: 0,
     pageCount: 1,
     activePage: 1,

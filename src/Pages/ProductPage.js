@@ -4,7 +4,7 @@ import productPageThumb2 from "../assets/productpage/single-product-1-thumb-2.pn
 import starsProduct from "../assets/productpage/Vectorstar.svg";
 import yeto from "../assets/productpage/card-item111.png";
 import yeto1 from "../assets/productpage/product-cover-5productpagebest.png";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import ProductCard from "../Components/ProductCard";
 import Companies from "../Layouts/Companies";
 import { useSelector } from "react-redux";
@@ -12,11 +12,11 @@ import { useSelector } from "react-redux";
 export default function ProductPage() {
   const { productId } = useParams();
 
-  useEffect(() => {
-    instance.get(`/product/${productId}`).then((res) => {
-      setProduct(res.data);
-    });
-  }, [productId]);
+  // useEffect(() => {
+  //   instance.get(`/product/${productId}`).then((res) => {
+  //     setProduct(res.data);
+  //   });
+  // }, [productId]);
   const products2 = [
     {
       id: 1,
@@ -88,9 +88,7 @@ export default function ProductPage() {
     <>
       <div className="flex flex-col items-center gap-5 py-10">
         <div className="flex w-3/4 gap-5 font-bold sm:flex-col">
-          <div className="">
-            <Slider3 className="bg-black" />
-          </div>
+          <div className="">{/* <Slider3 className="bg-black" /> */}</div>
           <div className="flex flex-col text-sm text-[#252B42] text-left gap-5 py-5">
             <p className="text-xl">Floating Phone</p>
             <div className="flex gap-2">
